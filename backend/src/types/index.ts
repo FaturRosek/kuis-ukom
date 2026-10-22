@@ -33,6 +33,7 @@ export interface Question {
   category_id: string;
   question_set_id: string;
   question_text: string;
+  image_url?: string | null;
   explanation?: string | null;
   difficulty?: 'easy' | 'medium' | 'hard';
   status: 'draft' | 'published';
@@ -74,6 +75,7 @@ export interface SoloQuestionClientView {
   order: number;
   total: number;
   question_text: string;
+  image_url?: string | null;
   duration_seconds: number;
   options: {
     id: string;
@@ -97,6 +99,7 @@ export interface ReviewQuestionItem {
   questionId: string;
   questionOrder: number;
   questionText: string;
+  imageUrl?: string | null;
   options: {
     id: string;
     label: string;

@@ -15,6 +15,7 @@ export class QuestionService {
         'q.category_id',
         'q.question_set_id',
         'q.question_text',
+        'q.image_url',
         'q.explanation',
         'q.difficulty',
         'q.status',
@@ -73,6 +74,7 @@ export class QuestionService {
     category_id: string;
     question_set_id: string;
     question_text: string;
+    image_url?: string | null;
     explanation?: string;
     difficulty?: 'easy' | 'medium' | 'hard';
     status?: 'draft' | 'published';
@@ -89,6 +91,7 @@ export class QuestionService {
           category_id: data.category_id,
           question_set_id: data.question_set_id,
           question_text: data.question_text,
+          image_url: data.image_url || null,
           explanation: data.explanation || null,
           difficulty: data.difficulty || 'medium',
           status: data.status || 'draft',
@@ -120,6 +123,7 @@ export class QuestionService {
       category_id?: string;
       question_set_id?: string;
       question_text?: string;
+      image_url?: string | null;
       explanation?: string;
       difficulty?: 'easy' | 'medium' | 'hard';
       status?: 'draft' | 'published';
@@ -137,6 +141,7 @@ export class QuestionService {
       if (data.category_id !== undefined) updateData.category_id = data.category_id;
       if (data.question_set_id !== undefined) updateData.question_set_id = data.question_set_id;
       if (data.question_text !== undefined) updateData.question_text = data.question_text;
+      if (data.image_url !== undefined) updateData.image_url = data.image_url;
       if (data.explanation !== undefined) updateData.explanation = data.explanation;
       if (data.difficulty !== undefined) updateData.difficulty = data.difficulty;
       if (data.status !== undefined) updateData.status = data.status;

@@ -132,11 +132,27 @@ export const SoloGameView: React.FC<SoloGameViewProps> = ({
         </div>
       </div>
 
-      {/* Question Card */}
       <div className="question-card">
         <p className="question-text">{currentQuestion.question_text}</p>
 
-        {/* Options List */}
+        {currentQuestion.image_url && (
+          <div style={{ textAlign: 'center', margin: '1rem 0' }}>
+            <img
+              src={currentQuestion.image_url!}
+              alt="Ilustrasi Soal"
+              style={{
+                maxWidth: '100%',
+                maxHeight: '320px',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border)',
+                boxShadow: 'var(--shadow-sm)',
+                objectFit: 'contain',
+                background: '#fff',
+              }}
+            />
+          </div>
+        )}
+
         <div className="options-list">
           {currentQuestion.options.map((opt) => {
             let statusClass = '';

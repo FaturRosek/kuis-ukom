@@ -48,6 +48,7 @@ export const MultiplayerView: React.FC<MultiplayerViewProps> = ({ onHome }) => {
     questionOrder: number;
     totalQuestions: number;
     questionText: string;
+    imageUrl?: string | null;
     options: { id: string; label: string; text: string }[];
     durationSeconds: number;
     deadlineTimestamp: number;
@@ -533,6 +534,24 @@ export const MultiplayerView: React.FC<MultiplayerViewProps> = ({ onHome }) => {
 
         <div className="question-card">
           <p className="question-text">{currentQ.questionText}</p>
+
+          {currentQ.imageUrl && (
+            <div style={{ textAlign: 'center', margin: '1rem 0' }}>
+              <img
+                src={currentQ.imageUrl!}
+                alt="Ilustrasi Soal"
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '300px',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--border)',
+                  boxShadow: 'var(--shadow-sm)',
+                  objectFit: 'contain',
+                  background: '#fff',
+                }}
+              />
+            </div>
+          )}
 
           <div className="options-list">
             {currentQ.options.map((opt) => {

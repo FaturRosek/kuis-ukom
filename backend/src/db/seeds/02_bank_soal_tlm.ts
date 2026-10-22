@@ -707,7 +707,7 @@ export async function seed(knex: Knex): Promise<void> {
           }
         ],"explanation": "Pelanggaran aturan 2_2s (dua hasil kontrol berturut-turut pada sisi yang sama melebihi 2 SD) mendeteksi adanya kesalahan sistematik (systematic error).","difficulty": "medium"
       },
-      {"question_text": "[Soal #2] Seorang ATLM melakukan pemeriksaan glukosa darah menggunakan alat kimia klinik. Beberapa hasil kontrol masih dalam batas ±2 SD, sedangkan terdapat satu hasil kontrol seperti gambar berikut, apakah interpretasi yang paling tepat?","options": [
+      {"image_url": "/images/questions/kimia_soal_2.jpeg","question_text": "[Soal #2] Seorang ATLM melakukan pemeriksaan glukosa darah menggunakan alat kimia klinik. Beberapa hasil kontrol masih dalam batas ±2 SD, sedangkan terdapat satu hasil kontrol seperti gambar berikut, apakah interpretasi yang paling tepat?","options": [
           {"option_label": "A","option_text": "Terjadi kesalahan acak dan run harus langsung ditolak","is_correct": false
           },
           {"option_label": "B","option_text": "Terjadi kesalahan sistematik karena dua kontrol melewati","is_correct": false
@@ -720,7 +720,7 @@ export async function seed(knex: Knex): Promise<void> {
           }
         ],"explanation": "Satu kontrol keluar di luar batas mean ±2 SD (aturan 1_2s) merupakan aturan peringatan (warning rule) yang mewajibkan peninjauan performa kontrol lainnya.","difficulty": "medium"
       },
-      {"question_text": "[Soal #3] Seorang ATLM melakukan QC pada pemeriksaan asam urat. QC dilakukan menggunakan aturan westgard rule. Hasil pemeriksaan control ada pada gambar berikut. Apa kesalahan yang terjadi pada kasus tersebut?","options": [
+      {"image_url": "/images/questions/kimia_soal_3.jpeg","question_text": "[Soal #3] Seorang ATLM melakukan QC pada pemeriksaan asam urat. QC dilakukan menggunakan aturan westgard rule. Hasil pemeriksaan control ada pada gambar berikut. Apa kesalahan yang terjadi pada kasus tersebut?","options": [
           {"option_label": "A","option_text": "Random","is_correct": false
           },
           {"option_label": "B","option_text": "Sistematis","is_correct": true
@@ -798,7 +798,7 @@ export async function seed(knex: Knex): Promise<void> {
           }
         ],"explanation": "Hasil kontrol berada pada +3,2 SD melanggar aturan 1_3s (penolakan). Tindakan: tolak run sesuai SOP, selidiki penyebab, perbaiki masalah, dan ulang QC.","difficulty": "medium"
       },
-      {"question_text": "[Soal #9] Seorang ATLM melakukan QC pada pemeriksaan Albumin. QC dilakukan menggunakan aturan westgard rule. Hasil pemeriksaan control ada pada gambar berikut. Apa aturan yang sesuai dengan gambar tersebut?","options": [
+      {"image_url": "/images/questions/kimia_soal_9.jpeg","question_text": "[Soal #9] Seorang ATLM melakukan QC pada pemeriksaan Albumin. QC dilakukan menggunakan aturan westgard rule. Hasil pemeriksaan control ada pada gambar berikut. Apa aturan yang sesuai dengan gambar tersebut?","options": [
           {"option_label": "A","option_text": "13S","is_correct": true
           },
           {"option_label": "B","option_text": "R4S","is_correct": false
@@ -1444,7 +1444,7 @@ export async function seed(knex: Knex): Promise<void> {
     ],"id": "a0000001-0000-0000-0000-000000000004"
   },
   {"title": "SOAL & PEMBAHASAN PARASIT","category_slug": "parasitologi","category_name": "Parasitologi","description": "21 Soal Kasus Parasitologi dan Mikologi: Helmintologi (Nematoda, Cestoda, Trematoda), Protozoologi Usus & Darah, serta Identifikasi Jamur.","questions": [
-      {"question_text": "Seorang laki-laki berusia 38 tahun berasal dari daerah endemis. Diduga schistosoma dan pada hasil pemeriksaan feses menunjukkan telur berbentuk oval, dengan duri pada salah satu ujungnya (terminal spine). Parasit yang paling mungkin adalah...","options": [
+      {"image_url": "/images/questions/parasit_soal_1.jpeg","question_text": "Seorang laki-laki berusia 38 tahun berasal dari daerah endemis. Diduga schistosoma dan pada hasil pemeriksaan feses menunjukkan telur berbentuk oval, dengan duri pada salah satu ujungnya (terminal spine). Parasit yang paling mungkin adalah...","options": [
           {"option_label": "A","option_text": "Schistosoma mansoni","is_correct": false
           },
           {"option_label": "B","option_text": "enterobius vermicularis","is_correct": false
@@ -1457,7 +1457,7 @@ export async function seed(knex: Knex): Promise<void> {
           }
         ],"explanation": "Schistosoma haematobium merupakan spesies Schistosoma yang memiliki telur berbentuk oval dengan duri di ujung telur (terminal spine). Shistosoma japonicum telurnya lebih bulat dengan tonjolan kecil (rudimentary lateral spine) sehingga tidak memiliki terminal spine. Shistosoma mansoni telurnya berbentuk oval dengan duri besar di sisi telur (lateral spine)","difficulty": "medium"
       },
-      {"question_text": "Seorang ATLM melakukan pemeriksaan mikroskopis sediaan feses dengan preparat basah. Pada pengamatan ditemukan protozoa berbentuk buah pir, memiliki 2 inti dengan titik kariosom di tengah, serta 4 pasang flagel sebagai alat gerak. Apa nama parasit tersebut...","options": [
+      {"image_url": "/images/questions/parasit_soal_2.jpeg","question_text": "Seorang ATLM melakukan pemeriksaan mikroskopis sediaan feses dengan preparat basah. Pada pengamatan ditemukan protozoa berbentuk buah pir, memiliki 2 inti dengan titik kariosom di tengah, serta 4 pasang flagel sebagai alat gerak. Apa nama parasit tersebut...","options": [
           {"option_label": "A","option_text": "Entamoeba histolytica","is_correct": false
           },
           {"option_label": "B","option_text": "Trichomonas vaginalis","is_correct": false
@@ -1535,7 +1535,7 @@ export async function seed(knex: Knex): Promise<void> {
           }
         ],"explanation": "Chikungunya disebabkan oleh virus chikungunya (genus Alphavirus) dan ditularkan terutama oleh nyamuk Aedes aegypti serta Aedes albopictus. Nyamuk ini juga merupakan vektor penyakit dengue.","difficulty": "medium"
       },
-      {"question_text": "Pada pemeriksaan preparat darah pasien filariasis ditemukan mikrofilaria. Dokter meminta identifikasi spesies berdasarkan morfologi. Hasil pengamatan: • Panjang tubuh lebih besar dibanding lebar • Inti tubuh teratur • Ujung ekor tidak memiliki inti Spesies yang dapat dibandingkan dengan ciri tersebut adalah...","options": [
+      {"image_url": "/images/questions/parasit_soal_8.jpeg","question_text": "Pada pemeriksaan preparat darah pasien filariasis ditemukan mikrofilaria. Dokter meminta identifikasi spesies berdasarkan morfologi. Hasil pengamatan: • Panjang tubuh lebih besar dibanding lebar • Inti tubuh teratur • Ujung ekor tidak memiliki inti Spesies yang dapat dibandingkan dengan ciri tersebut adalah...","options": [
           {"option_label": "A","option_text": "Wuchereria bancrofti","is_correct": true
           },
           {"option_label": "B","option_text": "Brugia malayi","is_correct": false
@@ -2263,6 +2263,7 @@ export async function seed(knex: Knex): Promise<void> {
             question_text: q.question_text,
             explanation: q.explanation,
             difficulty: q.difficulty,
+            image_url: (q as any).image_url || null,
             status: 'published',
           })
           .returning('*');
@@ -2284,6 +2285,7 @@ export async function seed(knex: Knex): Promise<void> {
           .update({
             explanation: q.explanation,
             difficulty: q.difficulty,
+            image_url: (q as any).image_url || null,
             status: 'published',
           });
 

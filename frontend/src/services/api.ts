@@ -93,6 +93,7 @@ export const api = {
     question_text: string;
     explanation?: string;
     difficulty?: string;
+    image_url?: string | null;
     status?: string;
     options: { option_label: string; option_text: string; is_correct: boolean }[];
   }): Promise<Question> {
@@ -110,6 +111,7 @@ export const api = {
       question_text?: string;
       explanation?: string;
       difficulty?: string;
+      image_url?: string | null;
       status?: string;
       options?: { id?: string; option_label: string; option_text: string; is_correct: boolean }[];
     }

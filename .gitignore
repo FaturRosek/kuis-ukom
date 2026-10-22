@@ -22,6 +22,8 @@ frontend/node_modules/
 # Excluded project docs
 design.md
 README.md
+PRD.md
+GEMINI_INSTRUCTIONS.md
 docs/
 
 

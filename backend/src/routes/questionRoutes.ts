@@ -31,7 +31,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 
 router.post('/', async (req: Request, res: Response) => {
   try {
-    const { category_id, question_set_id, question_text, explanation, difficulty, status, options } = req.body;
+    const { category_id, question_set_id, question_text, explanation, difficulty, status, image_url, options } = req.body;
     if (!category_id || !question_set_id || !question_text || !Array.isArray(options) || options.length < 2) {
       return res.status(400).json({
         success: false,
@@ -53,6 +53,7 @@ router.post('/', async (req: Request, res: Response) => {
       question_text: question_text.trim(),
       explanation,
       difficulty,
+      image_url,
       status: status || 'draft',
       options,
     });

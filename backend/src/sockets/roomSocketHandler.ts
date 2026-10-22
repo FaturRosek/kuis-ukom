@@ -192,6 +192,7 @@ async function sendNextQuestion(io: Server, roomCode: string) {
     questionOrder,
     totalQuestions: game.totalQuestions,
     questionText: currentQ.question_text,
+    imageUrl: currentQ.image_url || null,
     options: options.map((o) => ({
       id: o.id,
       label: o.option_label,

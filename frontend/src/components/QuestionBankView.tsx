@@ -70,6 +70,7 @@ export const QuestionBankView: React.FC = () => {
     question_text: string;
     explanation: string;
     difficulty: string;
+    image_url?: string | null;
     options: { id?: string; option_label: string; option_text: string; is_correct: boolean }[];
   } | null>(null);
   const [isSavingEdit, setIsSavingEdit] = useState<boolean>(false);
@@ -268,6 +269,7 @@ export const QuestionBankView: React.FC = () => {
       question_text: q.question_text,
       explanation: q.explanation || '',
       difficulty: q.difficulty || 'medium',
+      image_url: q.image_url || '',
       options: (q.options || []).map((opt) => ({
         id: opt.id,
         option_label: opt.option_label,
@@ -290,6 +292,7 @@ export const QuestionBankView: React.FC = () => {
         question_text: editQuestionData.question_text.trim(),
         explanation: editQuestionData.explanation.trim() || undefined,
         difficulty: editQuestionData.difficulty,
+        image_url: editQuestionData.image_url?.trim() || null,
         options: editQuestionData.options,
       });
 
@@ -673,6 +676,24 @@ export const QuestionBankView: React.FC = () => {
                       <p style={{ fontWeight: 600, fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '1rem' }}>
                         {q.question_text}
                       </p>
+
+                      {q.image_url && (
+                        <div style={{ marginBottom: '1.25rem', textAlign: 'center' }}>
+                          <img
+                            src={q.image_url!}
+                            alt="Ilustrasi Soal"
+                            style={{
+                              maxWidth: '100%',
+                              maxHeight: '340px',
+                              borderRadius: 'var(--radius-md)',
+                              border: '1px solid var(--border)',
+                              boxShadow: 'var(--shadow-sm)',
+                              objectFit: 'contain',
+                              background: '#fff',
+                            }}
+                          />
+                        </div>
+                      )}
 
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '1rem' }}>
                         {q.options?.map((opt) => (
@@ -1207,6 +1228,29 @@ export const QuestionBankView: React.FC = () => {
                 <option value="medium">Sedang</option>
                 <option value="hard">Sulit</option>
               </select>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">URL Gambar / Diagram (Opsional)</label>
+              <input
+                type="text"
+                className="form-input"
+                value={editQuestionData.image_url || ''}
+                onChange={(e) =>
+                  setEditQuestionData({ ...editQuestionData, image_url: e.target.value })
+                }
+                placeholder="Contoh: /images/questions/kimia_soal_3.jpeg"
+              />
+              {editQuestionData.image_url && (
+                <div style={{ marginTop: '0.5rem', textAlign: 'center' }}>
+                  <img
+                    src={editQuestionData.image_url}
+                    alt="Preview"
+                    style={{ maxHeight: '160px', maxWidth: '100%', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)', background: '#fff' }}
+                    onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                  />
+                </div>
+              )}
             </div>
 
             <div className="form-group">

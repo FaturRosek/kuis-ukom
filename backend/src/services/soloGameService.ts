@@ -65,12 +65,12 @@ export class SoloGameService {
             question_text: q.question_text,
             explanation: q.explanation,
             difficulty: q.difficulty,
+            image_url: q.image_url || null,
           }),
           options_snapshot: JSON.stringify(qOptions),
         });
       }
 
-      
       const firstQ = questions[0];
       const firstQOptions = optionsByQuestion[firstQ.id] || [];
 
@@ -79,6 +79,7 @@ export class SoloGameService {
         order: 1,
         total: questions.length,
         question_text: firstQ.question_text,
+        image_url: firstQ.image_url || null,
         duration_seconds: durationPerQuestion,
         options: firstQOptions.map((o: any) => ({
           id: o.id,
@@ -125,6 +126,7 @@ export class SoloGameService {
       order: row.question_order,
       total: session.total_questions,
       question_text: qSnapshot.question_text,
+      image_url: qSnapshot.image_url || null,
       duration_seconds: session.duration_per_question,
       options: optsSnapshot.map((o: any) => ({
         id: o.id,
@@ -329,6 +331,7 @@ export class SoloGameService {
         questionId: sq.question_id,
         questionOrder: sq.question_order,
         questionText: qSnapshot.question_text,
+        imageUrl: qSnapshot.image_url || null,
         options: optsSnapshot.map((o: any) => ({
           id: o.id,
           label: o.option_label,

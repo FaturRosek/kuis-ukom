@@ -88,12 +88,28 @@ export const SoloReviewView: React.FC<SoloReviewViewProps> = ({ sessionId, onBac
                   </div>
                 </div>
 
-                {}
                 <p style={{ fontSize: '1.05rem', fontWeight: 600, lineHeight: 1.6, marginBottom: '1.25rem' }}>
                   {item.questionText}
                 </p>
 
-                {}
+                {(item.imageUrl || item.image_url) && (
+                  <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
+                    <img
+                      src={(item.imageUrl || item.image_url)!}
+                      alt="Ilustrasi Soal"
+                      style={{
+                        maxWidth: '100%',
+                        maxHeight: '300px',
+                        borderRadius: 'var(--radius-md)',
+                        border: '1px solid var(--border)',
+                        boxShadow: 'var(--shadow-sm)',
+                        objectFit: 'contain',
+                        background: '#fff',
+                      }}
+                    />
+                  </div>
+                )}
+
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.25rem' }}>
                   {item.options.map((opt) => {
                     const isSelected = item.userAnswer?.selectedOptionId === opt.id;
