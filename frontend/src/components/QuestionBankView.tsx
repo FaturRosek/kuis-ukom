@@ -97,8 +97,18 @@ export const QuestionBankView: React.FC = () => {
       if (cats.length > 0 && !newSetData.category_id) {
         setNewSetData((prev) => ({ ...prev, category_id: cats[0].id }));
       }
-      if (sets.length > 0 && !selectedSet) {
-        selectQuestionSet(sets[0]);
+      if (sets.length > 0) {
+        setSelectedSet((prev) => {
+          if (!prev) {
+            selectQuestionSet(sets[0]);
+            return sets[0];
+          }
+          const found = sets.find((s) => s.id === prev.id);
+          return found || sets[0];
+        });
+      } else {
+        setSelectedSet(null);
+        setQuestions([]);
       }
     } catch (err: any) {
       console.error(err);
@@ -465,8 +475,6 @@ export const QuestionBankView: React.FC = () => {
                         <span style={{ flexShrink: 0, fontWeight: 600 }}>{s.question_count || 0} Soal</span>
                       </div>
                     </button>
-
-                    {/* Quick Delete button in list - ALWAYS VISIBLE */}
                     <button
                       type="button"
                       onClick={(e) => {

@@ -75,15 +75,15 @@ export class QuestionSetService {
   }
 
   static async update(id: string, data: Partial<{ category_id: string; title: string; description: string; status: 'draft' | 'published' }>): Promise<QuestionSet | null> {
-    const [updated] = await db('question_sets')
+    const rowsUpdated = await db('question_sets')
       .where({ id })
       .update({
         ...data,
         updated_at: db.fn.now(),
-      })
-      .returning('*');
+      });
 
-    return updated || null;
+    if (!rowsUpdated) return null;
+    return this.getById(id);
   }
 
   static async delete(id: string): Promise<boolean> {

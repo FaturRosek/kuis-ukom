@@ -1,7 +1,6 @@
 import type { Knex } from 'knex';
 
 export async function seed(knex: Knex): Promise<void> {
-  
   const categoriesData = [
     {
       name: 'Sitohistoteknologi',
@@ -22,6 +21,11 @@ export async function seed(knex: Knex): Promise<void> {
       name: 'Parasitologi',
       slug: 'parasitologi',
       description: 'Identifikasi helmintes, protozoa usus dan darah, serta mikologi klinik pada spesimen medis.',
+    },
+    {
+      name: 'Mikologi Klinik',
+      slug: 'mikologi-klinik',
+      description: 'Pemeriksaan mikologi medis: identifikasi jamur superfisial, kutan, subkutan, dan sistemik; teknik KOH, LPCB, kultur SDA, uji germ tube, dan mikromorfologi spora.',
     },
   ];
 
@@ -1642,7 +1646,8 @@ export async function seed(knex: Knex): Promise<void> {
         "explanation": "Ketidakkonsistenan pencatatan kaset, blok, slide, dan lot reagen mengganggu prinsip ketertelusuran (traceability) yang krusial bagi keselamatan pasien dan integritas hasil diagnostik.",
         "difficulty": "hard"
       }
-    ]
+    ],
+    "id": "a0000001-0000-0000-0000-000000000001"
   },
   {
     "title": "BIMBINGAN UKOM KIMIA KLINIK 2026 [4]",
@@ -1789,7 +1794,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "B",
             "option_text": "R4S",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "C",
@@ -1799,7 +1804,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "D",
             "option_text": "22S",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "E",
@@ -1807,7 +1812,7 @@ export async function seed(knex: Knex): Promise<void> {
             "is_correct": false
           }
         ],
-        "explanation": "Rumus Friedewald: LDL = Kolesterol Total - HDL - (TG / 5) = 250 - 60 - (200 / 5) = 190 - 40 = 150 mg/dL.",
+        "explanation": "Dua kontrol dalam satu run melebihi +2 SD pada sisi yang sama (keduanya positif) melanggar aturan 2_2s yang mengindikasikan terjadinya kesalahan sistematik.",
         "difficulty": "medium"
       },
       {
@@ -2114,12 +2119,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "C",
             "option_text": "230 mg/dL",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "D",
             "option_text": "235 mg/dL",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "E",
@@ -2127,7 +2132,7 @@ export async function seed(knex: Knex): Promise<void> {
             "is_correct": false
           }
         ],
-        "explanation": "Rumus Friedewald: Kolesterol Total = LDL + HDL + (TG / 5) = 145 + 50 + (140 / 5) = 195 + 28 = 223 mg/dL.",
+        "explanation": "Rumus Friedewald: Kolesterol Total = LDL + HDL + (TG / 5) = 145 + 50 + (175 / 5) = 145 + 50 + 35 = 230 mg/dL.",
         "difficulty": "medium"
       },
       {
@@ -2285,11 +2290,6 @@ export async function seed(knex: Knex): Promise<void> {
             "option_label": "E",
             "option_text": "Eritrosit 11 – 12 sel/lpb & Leukosit 9 – 10 sel/lpb",
             "is_correct": true
-          },
-          {
-            "option_label": "E",
-            "option_text": "Eritrosit 11 – 12 sel/lpb & Leukosit 9 – 10",
-            "is_correct": true
           }
         ],
         "explanation": "Rerata eritrosit 106 / 10 = 10,6 (dilaporkan 11–12 sel/LPB) dan leukosit 94 / 10 = 9,4 (dilaporkan 9–10 sel/LPB).",
@@ -2322,11 +2322,6 @@ export async function seed(knex: Knex): Promise<void> {
             "option_label": "E",
             "option_text": "Eritrosit 1 – 2 sel/lpb",
             "is_correct": false
-          },
-          {
-            "option_label": "B",
-            "option_text": "4 – 5 sel/LPB",
-            "is_correct": true
           }
         ],
         "explanation": "Rerata eritrosit dalam 10 LPB dihitung dan dilaporkan dalam rentang 4 - 5 sel/lpb.",
@@ -2391,11 +2386,6 @@ export async function seed(knex: Knex): Promise<void> {
             "option_label": "E",
             "option_text": "Leukosit 7 – 8 sel/lpb",
             "is_correct": true
-          },
-          {
-            "option_label": "E",
-            "option_text": "Leukosit 7 – 8 sel/lpb",
-            "is_correct": true
           }
         ],
         "explanation": "Evaluasi sedimen eritrosit dilaporkan dalam rentang sel/lpb sesuai jumlah total per 10 lapang pandang.",
@@ -2439,7 +2429,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "1,015",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "B",
@@ -2454,7 +2444,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "D",
             "option_text": "1,021",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "E",
@@ -2462,7 +2452,7 @@ export async function seed(knex: Knex): Promise<void> {
             "is_correct": false
           }
         ],
-        "explanation": "Koreksi suhu: Suhu sampel 26°C dengan kalibrasi 20°C (+6°C = 2x 3°C -> +0,002). BJ terkoreksi = 1,018 + 0,002 = 1,020.",
+        "explanation": "Suhu urin 30°C berada di atas suhu kalibrasi 20°C (+10°C / 3 = +0,003). BJ terkoreksi = 1,018 + 0,003 = 1,021.",
         "difficulty": "medium"
       },
       {
@@ -2471,7 +2461,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "1,015",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "B",
@@ -2481,7 +2471,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "C",
             "option_text": "1,020",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "D",
@@ -2494,7 +2484,7 @@ export async function seed(knex: Knex): Promise<void> {
             "is_correct": false
           }
         ],
-        "explanation": "Koreksi suhu: Suhu sampel 29°C dengan kalibrasi 20°C (+9°C = 3x 3°C -> +0,003). BJ terkoreksi = 1,015 + 0,003 = 1,018.",
+        "explanation": "Karena suhu sampel urin saat pemeriksaan sama dengan suhu kalibrasi urinometer (20°C), maka tidak memerlukan faktor koreksi suhu. Hasil BJ yang dilaporkan tetap 1,020.",
         "difficulty": "medium"
       },
       {
@@ -2503,7 +2493,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "1,020",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "B",
@@ -2518,7 +2508,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "D",
             "option_text": "1,024",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "E",
@@ -2526,7 +2516,7 @@ export async function seed(knex: Knex): Promise<void> {
             "is_correct": false
           }
         ],
-        "explanation": "Koreksi suhu: Suhu sampel 23°C (+3°C -> +0,001). BJ terkoreksi = 1,022 + 0,001 = 1,023.",
+        "explanation": "Suhu sampel 26°C di atas kalibrasi 20°C (+6°C = 2x 3°C -> +0,002). BJ terkoreksi = 1,022 + 0,002 = 1,024.",
         "difficulty": "medium"
       },
       {
@@ -2540,12 +2530,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "B",
             "option_text": "1,014",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "C",
             "option_text": "1,016",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "D",
@@ -2558,7 +2548,7 @@ export async function seed(knex: Knex): Promise<void> {
             "is_correct": false
           }
         ],
-        "explanation": "Koreksi suhu: Suhu sampel 14°C di bawah 20°C (-6°C -> -0,002). BJ terkoreksi = 1,016 - 0,002 = 1,014.",
+        "explanation": "Suhu sampel 14°C di bawah kalibrasi 20°C (-6°C = 2x 3°C -> -0,002). BJ terkoreksi = 1,016 - 0,002 = 1,014.",
         "difficulty": "medium"
       },
       {
@@ -2590,7 +2580,7 @@ export async function seed(knex: Knex): Promise<void> {
             "is_correct": false
           }
         ],
-        "explanation": "Koreksi suhu: Suhu sampel 29°C (+9°C -> +0,003). BJ terkoreksi = 1,020 + 0,003 = 1,023.",
+        "explanation": "Suhu sampel urin sama dengan suhu kalibrasi alat yaitu 20°C, sehingga tidak ada koreksi suhu. Nilai BJ yang dilaporkan adalah 1,018.",
         "difficulty": "medium"
       },
       {
@@ -2700,7 +2690,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "B",
             "option_text": "1,017",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "C",
@@ -2710,7 +2700,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "D",
             "option_text": "1,021",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "E",
@@ -2718,7 +2708,7 @@ export async function seed(knex: Knex): Promise<void> {
             "is_correct": false
           }
         ],
-        "explanation": "Koreksi suhu: Suhu sampel 14°C (-6°C -> -0,002). BJ terkoreksi = 1,019 - 0,002 = 1,017.",
+        "explanation": "Suhu sampel 14°C di bawah kalibrasi 20°C (-6°C = 2x 3°C -> -0,002). BJ terkoreksi = 1,019 - 0,002 = 1,017.",
         "difficulty": "medium"
       },
       {
@@ -2849,7 +2839,8 @@ export async function seed(knex: Knex): Promise<void> {
         "explanation": "Urine porsi tengah (midstream clean catch) adalah spesimen terbaik untuk urinalisis rutin dan kultur guna meminimalkan kontaminasi flora komensal uretra.",
         "difficulty": "medium"
       }
-    ]
+    ],
+    "id": "a0000001-0000-0000-0000-000000000002"
   },
   {
     "title": "Contoh Soal Uji Kompetensi Toksikologi",
@@ -3177,7 +3168,8 @@ export async function seed(knex: Knex): Promise<void> {
         "explanation": "Pada uji Prussian blue, sampel (setelah didestilasi/mikrodifusi dalam suasana asam) dibuat basa, ditambah FeSO₄ dan dipanaskan sehingga terbentuk ferosianida, kemudian ditambah FeCl₃ dan diasamkan dengan HCl sehingga terbentuk warna biru Prusia. Uji alternatif adalah Guignard (kertas asam pikrat berubah menjadi merah-jingga). Uji Reinsch dan Marsh digunakan untuk arsen/logam berat, Duquenois-Levine untuk ganja, dan Marquis untuk golongan opiat/amfetamin. Kunci Jawaban dan Pembahasan Rekapitulasi kunci jawaban: Soal Kunci Materi blueprint 1 B NAPZA – Narkotika (Ganja/Cannabis) 2 B NAPZA – Narkotika (Morfin/Heroin/Putaw/Opiates) 3 D NAPZA – Psikotropika (Ekstasi/Amfetamin) 4 B NAPZA – Psikotropika (Diazepam) 5 B NAPZA – Zat Adiktif (Etanol) 6 A Pestisida (Organofosfat/Karbamat) 7 A Logam Berat (Timbal) 8 B Logam Berat (Merkuri) 9 A Senyawa Lain (Karbon Monoksida) 10 C Senyawa Lain (Sianida)",
         "difficulty": "medium"
       }
-    ]
+    ],
+    "id": "a0000001-0000-0000-0000-000000000003"
   },
   {
     "title": "Contoh Soal UKOM D3 Analis Kesehatan",
@@ -3505,7 +3497,8 @@ export async function seed(knex: Knex): Promise<void> {
         "explanation": "Kadmium terikat metalotionein dan menumpuk di tubulus proksimal ginjal (waktu paruh biologis puluhan tahun). Kerusakan tubulus ditandai proteinuria berat molekul rendah, misalnya β2-mikroglobulin, dengan albumin normal. Kadmium urine (ACGIH BEI 5 μg/g kreatinin) mencerminkan beban tubuh, sedangkan kadmium darah mencerminkan paparan terkini. Kadmium kronis berkaitan dengan penyakit itai-itai.",
         "difficulty": "medium"
       }
-    ]
+    ],
+    "id": "a0000001-0000-0000-0000-000000000004"
   },
   {
     "title": "SOAL & PEMBAHASAN PARASIT",
@@ -3679,7 +3672,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "Aedes",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "B",
@@ -3689,7 +3682,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "C",
             "option_text": "Anopheles",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "D",
@@ -3716,12 +3709,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "B",
             "option_text": "Culex sp.",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "C",
             "option_text": "Aedes sp.",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "D",
@@ -3780,7 +3773,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "B",
             "option_text": "Makrokonidia seperti tetesan air mata, berdinding halus, dan hifa lurus bersekat.",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "C",
@@ -3790,7 +3783,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "D",
             "option_text": "Makrokonidia berbentuk gada, berdinding tipis dengan 2-4 sel.",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "E",
@@ -3812,12 +3805,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "B",
             "option_text": "Melakukan fiksasi pada sediaan darah tipis menggunakan metanol",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "C",
             "option_text": "Melakukan hemolisis pada sediaan darah tipis",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "D",
@@ -3839,12 +3832,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "Hifa bersepta panjang dengan makrokonidia kasar",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "B",
             "option_text": "Hifa pendek dan spora bulat yang tersusun berkelompok",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "C",
@@ -3903,7 +3896,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "Ascaris lumbricoides",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "B",
@@ -3913,7 +3906,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "C",
             "option_text": "Enterobius vermicularis",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "D",
@@ -3935,7 +3928,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "Mengganti preparat dengan sampel baru",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "B",
@@ -3945,7 +3938,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "C",
             "option_text": "Menggeser pengamatan ke perbesaran 400X untuk melihat struktur lebih",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "D",
@@ -3967,12 +3960,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "Taenia saginata",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "B",
             "option_text": "Taenia solium",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "C",
@@ -4031,12 +4024,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "Mengambil darah ulang pada malam hari dan membuat sediaan baru",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "B",
             "option_text": "Mikrofilaria hanya terdapat pada jaringan kulit",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "C",
@@ -4063,7 +4056,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "Metode Kato-Katz",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "B",
@@ -4078,7 +4071,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "D",
             "option_text": "Metode Anal Swab menggunakan Scotch adhesive tape",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "E",
@@ -4100,12 +4093,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "B",
             "option_text": "Kato-Katz",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "C",
             "option_text": "Graham",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "D",
@@ -4132,12 +4125,12 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "B",
             "option_text": "Trichuris trichiura",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "C",
             "option_text": "Ancylostoma duodenale",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "D",
@@ -4159,7 +4152,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "A",
             "option_text": "Kista muda",
-            "is_correct": true
+            "is_correct": false
           },
           {
             "option_label": "B",
@@ -4169,7 +4162,7 @@ export async function seed(knex: Knex): Promise<void> {
           {
             "option_label": "C",
             "option_text": "Trofozoit",
-            "is_correct": false
+            "is_correct": true
           },
           {
             "option_label": "D",
@@ -4185,7 +4178,8 @@ export async function seed(knex: Knex): Promise<void> {
         "explanation": "Pada preparat feses ditemukan bentuk amoeba yang mengandung eritrosit di dalam sitoplasmanya. Kemampuan memfagositosis eritrosit hanya dimiliki oleh stadium trofozoit, yaitu stadium aktif yang bergerak, mencari makan, dan berkembang biak. Sebaliknya, stadium kista muda, kista matang, metakista, maupun prekista merupakan stadium tidak aktif sehingga tidak mengandung eritrosit di dalam sitoplasma. Oleh karena itu, stadium parasit yang ditemukan adalah trofozoit.",
         "difficulty": "medium"
       }
-    ]
+    ],
+    "id": "a0000001-0000-0000-0000-000000000005"
   },
   {
     "title": "soal UKOM sitohistoteknologi",
@@ -4463,6 +4457,976 @@ export async function seed(knex: Knex): Promise<void> {
         "explanation": "Kerusakan berupa robekan atau kerutan pada sediaan histopatologi terutama diakibatkan oleh pisau mikrotom yang tumpul/rusak, sudut kemiringan pisau (clearance angle) yang salah, atau kecepatan memotong yang tidak stabil.",
         "difficulty": "medium"
       }
+    ],
+    "id": "a0000001-0000-0000-0000-000000000006"
+  },
+  {
+    "id": "a0000001-0000-0000-0000-000000000007",
+    "title": "Soal_UKOM_D3_TLM_Mikologi",
+    "category_slug": "mikologi-klinik",
+    "category_name": "Mikologi Klinik",
+    "description": "30 Soal Kasus Uji Kompetensi D3 TLM Mikologi Klinik: Prinsip Pemeriksaan & Media, Mikologi Superfisial & Kutan, Mikologi Sistemik & Oportunistik, Mikromorfologi Spora & Identifikasi Kultur.",
+    "questions": [
+      {
+        "question_text": "-K-e-r-o-k-a-n- -k-u-l-i-t- -d-a-r-i- -l-e-s-i- -t-i-n-e-a- -k-o-r-p-o-r-i-s- -d-i-p-e-r-i-k-s-a- -s-e-c-a-r-a- -l-a-n-g-s-u-n-g-.- -A-T-L-M- -m-e-n-e-t-e-s-k-a-n- -K-O-H- -1-0---2-0-%- -p-a-d-a- -s-e-d-i-a-a-n-,- -m-e-n-u-t-u-p-n-y-a- -d-e-n-g-a-n- -k-a-c-a- -p-e-n-u-t-u-p-,- -d-a-n- -m-e-n-d-i-a-m-k-a-n-n-y-a- -1-5---2-0- -m-e-n-i-t- -s-e-b-e-l-u-m- -d-i-b-a-c-a-.- -F-u-n-g-s-i- -u-t-a-m-a- -K-O-H- -p-a-d-a- -p-e-m-e-r-i-k-s-a-a-n- -i-n-i- -a-d-a-l-a-h- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -C- -M-e-l-a-r-u-t-k-a-n- -k-e-r-a-t-i-n- -d-a-n- -s-e-l- -e-p-i-t-e-l- -s-e-h-i-n-g-g-a- -e-l-e-m-e-n- -j-a-m-u-r- -t-a-m-p-a-k- -j-e-l-a-s- -P-e-m-b-a-h-a-s-a-n- -K-O-H- -b-e-r-s-i-f-a-t- -k-e-r-a-t-o-l-i-t-i-k-:- -m-e-l-a-r-u-t-k-a-n- -k-e-r-a-t-i-n-,- -s-e-l- -e-p-i-t-e-l-,- -d-a-n- -d-e-b-r-i-s- -s-e-h-i-n-g-g-a- -s-e-d-i-a-a-n- -m-e-n-j-a-d-i- -j-e-r-n-i-h-,- -s-e-d-a-n-g-k-a-n- -d-i-n-d-i-n-g- -s-e-l- -j-a-m-u-r- -(-k-i-t-i-n- -d-a-n- -g-l-u-k-a-n-)- -t-a-h-a-n- -t-e-r-h-a-d-a-p- -K-O-H- -s-e-h-i-n-g-g-a- -h-i-f-a- -d-a-n- -s-p-o-r-a- -t-a-m-p-a-k- -j-e-l-a-s-.- -K-O-H- -t-i-d-a-k- -m-e-w-a-r-n-a-i-;- -w-a-r-n-a- -b-i-r-u- -d-i-p-e-r-o-l-e-h- -b-i-l-a- -d-i-t-a-m-b-a-h-k-a-n- -t-i-n-t-a- -P-a-r-k-e-r- -b-i-r-u- -a-t-a-u- -p-a-d-a- -s-e-d-i-a-a-n- -L-P-C-B-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-w-a-r-n-a-i- -d-i-n-d-i-n-g- -s-e-l- -j-a-m-u-r- -a-g-a-r- -t-a-m-p-a-k- -b-i-r-u-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-M-e-m-a-t-i-k-a-n- -j-a-m-u-r- -a-g-a-r- -s-e-d-i-a-a-n- -a-m-a-n- -d-i-b-a-c-a-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-l-a-r-u-t-k-a-n- -k-e-r-a-t-i-n- -d-a-n- -s-e-l- -e-p-i-t-e-l- -s-e-h-i-n-g-g-a- -e-l-e-m-e-n- -j-a-m-u-r- -t-a-m-p-a-k- -j-e-l-a-s-",
+            "is_correct": true
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-m-f-i-k-s-a-s-i- -h-i-f-a- -p-a-d-a- -k-a-c-a- -o-b-j-e-k-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-n-g-h-a-m-b-a-t- -p-e-r-t-u-m-b-u-h-a-n- -b-a-k-t-e-r-i- -k-o-n-t-a-m-i-n-a-n-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-a-d-a- -s-e-d-i-a-a-n- -K-O-H- -2-0-%- -k-e-r-o-k-a-n- -k-u-l-i-t- -t-e-l-a-p-a-k- -k-a-k-i- -y-a-n-g- -l-a-n-g-s-u-n-g- -d-i-b-a-c-a- -t-a-n-p-a- -d-i-d-i-a-m-k-a-n-,- -t-e-r-l-i-h-a-t- -s-t-r-u-k-t-u-r- -m-e-n-y-e-r-u-p-a-i- -h-i-f-a- -b-e-r-c-a-b-a-n-g- -y-a-n-g- -m-e-n-g-i-k-u-t-i- -b-a-t-a-s---b-a-t-a-s- -s-e-l- -e-p-i-t-e-l-,- -l-e-b-a-r-n-y-a- -t-i-d-a-k- -t-e-r-a-t-u-r-,- -t-a-n-p-a- -s-e-p-t-a- -d-a-n- -t-a-n-p-a- -a-r-t-r-o-k-o-n-i-d-i-a-.- -S-e-t-e-l-a-h- -s-e-d-i-a-a-n- -d-i-h-a-n-g-a-t-k-a-n- -p-e-r-l-a-h-a-n- -d-a-n- -d-i-d-i-a-m-k-a-n- -3-0- -m-e-n-i-t-,- -s-t-r-u-k-t-u-r- -t-e-r-s-e-b-u-t- -m-e-n-g-h-i-l-a-n-g-.- -I-n-t-e-r-p-r-e-t-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -A- -A-r-t-e-f-a-k- -m-o-s-a-i-c- -f-u-n-g-u-s- -(-e-n-d-a-p-a-n- -l-i-p-i-d-/-k-o-l-e-s-t-e-r-o-l- -d-i- -b-a-t-a-s- -s-e-l-)-;- -h-a-s-i-l- -n-e-g-a-t-i-f- -P-e-m-b-a-h-a-s-a-n- -M-o-s-a-i-c- -f-u-n-g-u-s- -a-d-a-l-a-h- -a-r-t-e-f-a-k- -b-e-r-u-p-a- -e-n-d-a-p-a-n- -l-i-p-i-d-/-k-o-l-e-s-t-e-r-o-l- -d-i- -s-e-p-a-n-j-a-n-g- -b-a-t-a-s- -s-e-l- -e-p-i-t-e-l- -y-a-n-g- -m-e-m-b-e-n-t-u-k- -j-a-l-i-n-a-n- -m-e-n-y-e-r-u-p-a-i- -h-i-f-a-.- -C-i-r-i-n-y-a-:- -m-e-n-g-i-k-u-t-i- -k-o-n-t-u-r- -s-e-l-,- -t-i-d-a-k- -b-e-r-s-e-p-t-a-,- -l-e-b-a-r- -t-i-d-a-k- -s-e-r-a-g-a-m-,- -d-a-n- -m-e-n-i-p-i-s- -a-t-a-u- -h-i-l-a-n-g- -s-e-t-e-l-a-h- -p-e-n-j-e-r-n-i-h-a-n- -l-e-b-i-h- -l-a-m-a- -a-t-a-u- -p-e-m-a-n-a-s-a-n-.- -H-i-f-a- -d-e-r-m-a-t-o-f-i-t- -m-e-m-o-t-o-n-g- -b-a-t-a-s- -s-e-l-,- -l-e-b-a-r-n-y-a- -s-e-r-a-g-a-m-,- -b-e-r-s-e-p-t-a-,- -d-a-n- -s-e-r-i-n-g- -t-e-r-p-u-t-u-s- -m-e-m-b-e-n-t-u-k- -a-r-t-r-o-k-o-n-i-d-i-a-.- -S-e-r-a-t- -k-a-i-n- -l-e-b-i-h- -t-e-b-a-l-,- -k-a-k-u-,- -d-a-n- -t-i-d-a-k- -b-e-r-c-a-b-a-n-g-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-A-r-t-e-f-a-k- -m-o-s-a-i-c- -f-u-n-g-u-s- -(-e-n-d-a-p-a-n- -l-i-p-i-d-/-k-o-l-e-s-t-e-r-o-l- -d-i- -b-a-t-a-s- -s-e-l-)-;- -h-a-s-i-l- -n-e-g-a-t-i-f-",
+            "is_correct": true
+          },
+          {
+            "option_label": "B",
+            "option_text": "-H-i-f-a- -d-e-r-m-a-t-o-f-i-t-;- -h-a-s-i-l- -p-o-s-i-t-i-f-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-P-s-e-u-d-o-h-i-f-a- -C-a-n-d-i-d-a-;- -h-a-s-i-l- -p-o-s-i-t-i-f-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-H-i-f-a- -M-a-l-a-s-s-e-z-i-a-;- -h-a-s-i-l- -p-o-s-i-t-i-f-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-S-e-r-a-t- -k-a-p-a-s-/-k-a-i-n- -k-o-n-t-a-m-i-n-a-n-;- -u-l-a-n-g-i- -p-e-n-g-a-m-b-i-l-a-n- -s-a-m-p-e-l-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-U-n-t-u-k- -i-s-o-l-a-s-i- -d-e-r-m-a-t-o-f-i-t- -d-a-r-i- -k-e-r-o-k-a-n- -k-u-k-u-,- -A-T-L-M- -m-e-n-g-g-u-n-a-k-a-n- -S-a-b-o-u-r-a-u-d- -D-e-x-t-r-o-s-e- -A-g-a-r- -(-S-D-A-)- -y-a-n-g- -d-i-t-a-m-b-a-h- -k-l-o-r-a-m-f-e-n-i-k-o-l- -d-a-n- -s-i-k-l-o-h-e-k-s-i-m-i-d-.- -F-u-n-g-s-i- -p-e-n-a-m-b-a-h-a-n- -s-i-k-l-o-h-e-k-s-i-m-i-d- -a-d-a-l-a-h- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -E- -M-e-n-g-h-a-m-b-a-t- -p-e-r-t-u-m-b-u-h-a-n- -j-a-m-u-r- -s-a-p-r-o-f-i-t- -(-k-a-p-a-n-g- -l-i-n-g-k-u-n-g-a-n-)- -y-a-n-g- -m-e-n-g-o-n-t-a-m-i-n-a-s-i- -P-e-m-b-a-h-a-s-a-n- -K-l-o-r-a-m-f-e-n-i-k-o-l- -(-a-t-a-u- -g-e-n-t-a-m-i-s-i-n-)- -m-e-n-g-h-a-m-b-a-t- -b-a-k-t-e-r-i-,- -s-e-d-a-n-g-k-a-n- -s-i-k-l-o-h-e-k-s-i-m-i-d- -m-e-n-g-h-a-m-b-a-t- -k-a-p-a-n-g- -s-a-p-r-o-f-i-t- -d-a-n- -s-e-b-a-g-i-a-n- -k-h-a-m-i-r-,- -s-e-m-e-n-t-a-r-a- -d-e-r-m-a-t-o-f-i-t- -t-a-h-a-n- -t-e-r-h-a-d-a-p-n-y-a-.- -P-e-r-l-u- -d-i-i-n-g-a-t-,- -s-i-k-l-o-h-e-k-s-i-m-i-d- -j-u-g-a- -m-e-n-g-h-a-m-b-a-t- -C-r-y-p-t-o-c-o-c-c-u-s-,- -s-e-b-a-g-i-a-n- -C-a-n-d-i-d-a- -n-o-n---a-l-b-i-c-a-n-s-,- -A-s-p-e-r-g-i-l-l-u-s-,- -d-a-n- -k-a-p-a-n-g- -p-e-n-y-e-b-a-b- -o-n-i-k-o-m-i-k-o-s-i-s- -n-o-n---d-e-r-m-a-t-o-f-i-t-,- -s-e-h-i-n-g-g-a- -u-n-t-u-k- -k-e-c-u-r-i-g-a-a-n- -t-e-r-s-e-b-u-t- -p-e-r-l-u- -d-i-t-a-n-a-m- -p-a-r-a-l-e-l- -p-a-d-a- -m-e-d-i-a- -t-a-n-p-a- -s-i-k-l-o-h-e-k-s-i-m-i-d-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-n-g-h-a-m-b-a-t- -p-e-r-t-u-m-b-u-h-a-n- -b-a-k-t-e-r-i- -G-r-a-m- -n-e-g-a-t-i-f-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-M-e-n-u-r-u-n-k-a-n- -p-H- -m-e-d-i-a- -a-g-a-r- -s-e-s-u-a-i- -b-a-g-i- -j-a-m-u-r-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-n-j-a-d-i- -s-u-m-b-e-r- -n-i-t-r-o-g-e-n- -b-a-g-i- -d-e-r-m-a-t-o-f-i-t-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-r-a-n-g-s-a-n-g- -p-e-m-b-e-n-t-u-k-a-n- -m-a-k-r-o-k-o-n-i-d-i-a-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-n-g-h-a-m-b-a-t- -p-e-r-t-u-m-b-u-h-a-n- -j-a-m-u-r- -s-a-p-r-o-f-i-t- -(-k-a-p-a-n-g- -l-i-n-g-k-u-n-g-a-n-)- -y-a-n-g- -m-e-n-g-o-n-t-a-m-i-n-a-s-i-",
+            "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "-K-e-r-o-k-a-n- -k-u-l-i-t- -d-i-t-a-n-a-m- -p-a-d-a- -D-e-r-m-a-t-o-p-h-y-t-e- -T-e-s-t- -M-e-d-i-u-m- -(-D-T-M-)- -d-a-n- -d-i-i-n-k-u-b-a-s-i- -p-a-d-a- -s-u-h-u- -k-a-m-a-r-.- -P-a-d-a- -h-a-r-i- -k-e---2-1-,- -m-e-d-i-a- -b-e-r-u-b-a-h- -m-e-n-j-a-d-i- -m-e-r-a-h- -d-e-n-g-a-n- -k-o-l-o-n-i- -b-e-r-w-a-r-n-a- -h-i-j-a-u- -k-e-h-i-t-a-m-a-n- -d-a-n- -b-e-r-b-u-b-u-k-.- -I-n-t-e-r-p-r-e-t-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -B- -P-e-r-u-b-a-h-a-n- -m-e-r-a-h- -t-i-d-a-k- -d-a-p-a-t- -d-i-a-r-t-i-k-a-n- -s-e-b-a-g-a-i- -d-e-r-m-a-t-o-f-i-t- -k-a-r-e-n-a- -t-e-r-j-a-d-i- -s-e-t-e-l-a-h- -1-4- -h-a-r-i- -d-a-n- -k-o-l-o-n-i- -b-e-r-p-i-g-m-e-n- -g-e-l-a-p-;- -k-e-m-u-n-g-k-i-n-a-n- -k-a-p-a-n-g- -s-a-p-r-o-f-i-t- -P-e-m-b-a-h-a-s-a-n- -D-T-M- -m-e-n-g-a-n-d-u-n-g- -i-n-d-i-k-a-t-o-r- -p-h-e-n-o-l- -r-e-d-.- -D-e-r-m-a-t-o-f-i-t- -m-e-m-e-c-a-h- -p-r-o-t-e-i-n- -l-e-b-i-h- -d-a-h-u-l-u- -s-e-h-i-n-g-g-a- -m-e-n-g-h-a-s-i-l-k-a-n- -m-e-t-a-b-o-l-i-t- -a-l-k-a-l-i- -d-a-n- -m-e-d-i-a- -m-e-n-j-a-d-i- -m-e-r-a-h-,- -b-i-a-s-a-n-y-a- -d-a-l-a-m- -3---1-4- -h-a-r-i- -b-e-r-s-a-m-a-a-n- -d-e-n-g-a-n- -m-u-n-c-u-l-n-y-a- -k-o-l-o-n-i-.- -K-a-p-a-n-g- -s-a-p-r-o-f-i-t- -j-u-g-a- -d-a-p-a-t- -m-e-m-e-r-a-h-k-a-n- -m-e-d-i-a- -s-e-t-e-l-a-h- -k-a-r-b-o-h-i-d-r-a-t- -h-a-b-i-s-,- -t-e-t-a-p-i- -l-e-b-i-h- -l-a-m-b-a-t-.- -K-o-l-o-n-i- -d-e-r-m-a-t-o-f-i-t- -t-i-d-a-k- -b-e-r-p-i-g-m-e-n- -g-e-l-a-p- -p-a-d-a- -p-e-r-m-u-k-a-a-n-n-y-a- -(-p-u-t-i-h-,- -k-r-e-m-,- -a-t-a-u- -k-e-k-u-n-i-n-g-a-n-)-.- -I-d-e-n-t-i-f-i-k-a-s-i- -a-k-h-i-r- -t-e-t-a-p- -h-a-r-u-s- -d-e-n-g-a-n- -p-e-m-e-r-i-k-s-a-a-n- -m-i-k-r-o-s-k-o-p-i-s-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-P-o-s-i-t-i-f- -d-e-r-m-a-t-o-f-i-t- -k-a-r-e-n-a- -m-e-d-i-a- -b-e-r-u-b-a-h- -m-e-r-a-h-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-P-e-r-u-b-a-h-a-n- -m-e-r-a-h- -t-i-d-a-k- -d-a-p-a-t- -d-i-a-r-t-i-k-a-n- -s-e-b-a-g-a-i- -d-e-r-m-a-t-o-f-i-t- -k-a-r-e-n-a- -t-e-r-j-a-d-i- -s-e-t-e-l-a-h- -1-4- -h-a-r-i- -d-a-n- -k-o-l-o-n-i- -b-e-r-p-i-g-m-e-n- -g-e-l-a-p-;- -k-e-m-u-n-g-k-i-n-a-n- -k-a-p-a-n-g- -s-a-p-r-o-f-i-t-",
+            "is_correct": true
+          },
+          {
+            "option_label": "C",
+            "option_text": "-P-o-s-i-t-i-f- -M-a-l-a-s-s-e-z-i-a- -k-a-r-e-n-a- -k-o-l-o-n-i- -b-e-r-b-u-b-u-k-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-N-e-g-a-t-i-f- -k-a-r-e-n-a- -D-T-M- -h-a-n-y-a- -d-a-p-a-t- -d-i-b-a-c-a- -p-a-d-a- -h-a-r-i- -k-e---3-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-P-o-s-i-t-i-f- -C-a-n-d-i-d-a- -a-l-b-i-c-a-n-s- -k-a-r-e-n-a- -t-e-r-j-a-d-i- -p-e-r-u-b-a-h-a-n- -p-H-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-I-s-o-l-a-t- -k-a-p-a-n-g- -d-a-r-i- -k-e-r-o-k-a-n- -k-u-l-i-t- -m-e-n-u-n-j-u-k-k-a-n- -k-o-l-o-n-i- -k-h-a-s- -d-e-r-m-a-t-o-f-i-t-,- -t-e-t-a-p-i- -p-a-d-a- -p-r-e-p-a-r-a-t- -t-e-a-s-e-d- -m-o-u-n-t- -s-u-s-u-n-a-n- -k-o-n-i-d-i-a- -s-e-l-a-l-u- -r-u-s-a-k- -s-e-h-i-n-g-g-a- -s-u-l-i-t- -d-i-b-e-d-a-k-a-n- -a-p-a-k-a-h- -m-i-k-r-o-k-o-n-i-d-i-a- -t-e-r-s-u-s-u-n- -b-e-r-g-e-r-o-m-b-o-l- -a-t-a-u- -t-u-n-g-g-a-l- -d-i- -s-e-p-a-n-j-a-n-g- -h-i-f-a-.- -T-e-k-n-i-k- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -u-n-t-u-k- -m-e-n-g-a-t-a-s-i- -h-a-l- -i-n-i- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -D- -K-u-l-t-u-r- -s-l-i-d-e- -(-s-l-i-d-e- -c-u-l-t-u-r-e-/-m-e-t-o-d-e- -R-i-d-d-e-l-l-)- -P-e-m-b-a-h-a-s-a-n- -P-a-d-a- -k-u-l-t-u-r- -s-l-i-d-e-,- -j-a-m-u-r- -d-i-t-u-m-b-u-h-k-a-n- -p-a-d-a- -b-l-o-k- -a-g-a-r- -k-e-c-i-l- -d-i- -a-n-t-a-r-a- -k-a-c-a- -o-b-j-e-k- -d-a-n- -k-a-c-a- -p-e-n-u-t-u-p- -s-e-h-i-n-g-g-a- -s-t-r-u-k-t-u-r- -r-e-p-r-o-d-u-k-s-i- -t-u-m-b-u-h- -t-a-n-p-a- -t-e-r-g-a-n-g-g-u-.- -S-e-t-e-l-a-h- -d-i-w-a-r-n-a-i- -L-P-C-B-,- -s-u-s-u-n-a-n- -k-o-n-i-d-i-a- -t-a-m-p-a-k- -u-t-u-h-.- -T-i-n-t-a- -I-n-d-i-a- -d-i-g-u-n-a-k-a-n- -u-n-t-u-k- -k-a-p-s-u-l- -C-r-y-p-t-o-c-o-c-c-u-s-,- -d-a-n- -u-j-i- -t-a-b-u-n-g- -k-e-c-a-m-b-a-h- -u-n-t-u-k- -C-a-n-d-i-d-a- -a-l-b-i-c-a-n-s-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-P-e-w-a-r-n-a-a-n- -G-r-a-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-U-j-i- -t-a-b-u-n-g- -k-e-c-a-m-b-a-h- -(-g-e-r-m- -t-u-b-e-)-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-K-u-l-t-u-r- -u-l-a-n-g- -p-a-d-a- -D-T-M-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-K-u-l-t-u-r- -s-l-i-d-e- -(-s-l-i-d-e- -c-u-l-t-u-r-e-/-m-e-t-o-d-e- -R-i-d-d-e-l-l-)-",
+            "is_correct": true
+          },
+          {
+            "option_label": "E",
+            "option_text": "-P-e-w-a-r-n-a-a-n- -t-i-n-t-a- -I-n-d-i-a-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-a-d-a- -p-e-m-b-u-a-t-a-n- -s-e-d-i-a-a-n- -L-a-c-t-o-p-h-e-n-o-l- -C-o-t-t-o-n- -B-l-u-e- -(-L-P-C-B-)- -d-a-r-i- -b-i-a-k-a-n- -k-a-p-a-n-g-,- -k-o-m-p-o-n-e-n- -c-o-t-t-o-n- -b-l-u-e- -b-e-r-f-u-n-g-s-i- -u-n-t-u-k- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -B- -M-e-w-a-r-n-a-i- -k-i-t-i-n- -p-a-d-a- -d-i-n-d-i-n-g- -s-e-l- -j-a-m-u-r- -s-e-h-i-n-g-g-a- -t-a-m-p-a-k- -b-i-r-u- -P-e-m-b-a-h-a-s-a-n- -K-o-m-p-o-n-e-n- -L-P-C-B-:- -f-e-n-o-l- -m-e-m-a-t-i-k-a-n- -j-a-m-u-r-,- -a-s-a-m- -l-a-k-t-a-t- -m-e-m-p-e-r-t-a-h-a-n-k-a-n- -s-t-r-u-k-t-u-r- -d-a-n- -m-e-n-j-e-r-n-i-h-k-a-n-,- -g-l-i-s-e-r-o-l- -m-e-n-c-e-g-a-h- -s-e-d-i-a-a-n- -c-e-p-a-t- -k-e-r-i-n-g-,- -d-a-n- -c-o-t-t-o-n- -b-l-u-e- -(-a-n-i-l-i-n- -b-l-u-e-)- -m-e-w-a-r-n-a-i- -k-i-t-i-n- -d-i-n-d-i-n-g- -s-e-l- -j-a-m-u-r- -m-e-n-j-a-d-i- -b-i-r-u-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-m-a-t-i-k-a-n- -j-a-m-u-r-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-M-e-w-a-r-n-a-i- -k-i-t-i-n- -p-a-d-a- -d-i-n-d-i-n-g- -s-e-l- -j-a-m-u-r- -s-e-h-i-n-g-g-a- -t-a-m-p-a-k- -b-i-r-u-",
+            "is_correct": true
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-m-p-e-r-t-a-h-a-n-k-a-n- -s-t-r-u-k-t-u-r- -j-a-m-u-r-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-n-c-e-g-a-h- -s-e-d-i-a-a-n- -c-e-p-a-t- -k-e-r-i-n-g-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-l-a-r-u-t-k-a-n- -k-e-r-a-t-i-n-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-a-s-i-e-n- -l-a-k-i---l-a-k-i- -2-5- -t-a-h-u-n-,- -p-e-k-e-r-j-a- -b-a-n-g-u-n-a-n-,- -m-e-n-g-e-l-u-h-k-a-n- -b-e-r-c-a-k- -p-u-t-i-h- -b-e-r-s-i-s-i-k- -h-a-l-u-s- -d-i- -p-u-n-g-g-u-n-g- -d-a-n- -d-a-d-a- -y-a-n-g- -m-a-k-i-n- -j-e-l-a-s- -s-e-t-e-l-a-h- -b-e-r-k-e-r-i-n-g-a-t-.- -P-e-m-e-r-i-k-s-a-a-n- -K-O-H- -k-e-r-o-k-a-n- -k-u-l-i-t- -m-e-n-u-n-j-u-k-k-a-n- -h-i-f-a- -p-e-n-d-e-k---p-e-n-d-e-k- -b-e-n-g-k-o-k- -d-a-n- -s-e-l- -r-a-g-i- -b-u-l-a-t- -b-e-r-g-e-r-o-m-b-o-l- -(-g-a-m-b-a-r-a-n- -s-p-a-g-h-e-t-t-i- -a-n-d- -m-e-a-t-b-a-l-l-s-)-.- -P-e-n-y-e-b-a-b- -y-a-n-g- -p-a-l-i-n-g- -m-u-n-g-k-i-n- -a-d-a-l-a-h- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -A- -M-a-l-a-s-s-e-z-i-a- -f-u-r-f-u-r- -P-e-m-b-a-h-a-s-a-n- -G-a-m-b-a-r-a-n- -h-i-f-a- -p-e-n-d-e-k- -b-e-n-g-k-o-k- -d-a-n- -s-e-l- -r-a-g-i- -b-u-l-a-t- -b-e-r-g-e-r-o-m-b-o-l- -(-s-p-a-g-h-e-t-t-i- -a-n-d- -m-e-a-t-b-a-l-l-s-)- -a-d-a-l-a-h- -c-i-r-i- -k-h-a-s- -M-a-l-a-s-s-e-z-i-a- -p-a-d-a- -p-i-t-i-r-i-a-s-i-s- -v-e-r-s-i-k-o-l-o-r- -(-p-a-n-u-)-.- -D-e-r-m-a-t-o-f-i-t- -m-e-m-b-e-r-i-k-a-n- -h-i-f-a- -p-a-n-j-a-n-g- -b-e-r-s-e-p-t-a- -d-e-n-g-a-n- -a-r-t-r-o-k-o-n-i-d-i-a-,- -s-e-d-a-n-g-k-a-n- -C-a-n-d-i-d-a- -m-e-m-b-e-r-i-k-a-n- -s-e-l- -r-a-g-i- -b-e-r-t-u-n-a-s- -d-e-n-g-a-n- -p-s-e-u-d-o-h-i-f-a-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-a-l-a-s-s-e-z-i-a- -f-u-r-f-u-r-",
+            "is_correct": true
+          },
+          {
+            "option_label": "B",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -r-u-b-r-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-C-a-n-d-i-d-a- -a-l-b-i-c-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-E-p-i-d-e-r-m-o-p-h-y-t-o-n- -f-l-o-c-c-o-s-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-K-e-r-o-k-a-n- -k-u-l-i-t- -p-a-s-i-e-n- -p-i-t-i-r-i-a-s-i-s- -v-e-r-s-i-k-o-l-o-r- -d-e-n-g-a-n- -K-O-H- -p-o-s-i-t-i-f- -d-i-t-a-n-a-m- -p-a-d-a- -S-D-A- -b-e-r-k-l-o-r-a-m-f-e-n-i-k-o-l- -d-a-n- -d-i-i-n-k-u-b-a-s-i- -p-a-d-a- -3-0-°-C-.- -S-e-t-e-l-a-h- -2- -m-i-n-g-g-u- -t-i-d-a-k- -t-a-m-p-a-k- -p-e-r-t-u-m-b-u-h-a-n-.- -P-e-n-y-e-b-a-b- -y-a-n-g- -p-a-l-i-n-g- -m-u-n-g-k-i-n- -d-a-n- -l-a-n-g-k-a-h- -p-e-r-b-a-i-k-a-n-n-y-a- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -D- -M-a-l-a-s-s-e-z-i-a- -b-e-r-s-i-f-a-t- -l-i-p-o-f-i-l-i-k-;- -g-u-n-a-k-a-n- -S-D-A- -y-a-n-g- -d-i-l-a-p-i-s-i- -m-i-n-y-a-k- -z-a-i-t-u-n- -s-t-e-r-i-l- -a-t-a-u- -a-g-a-r- -D-i-x-o-n-/-L-e-e-m-i-n-g---N-o-t-m-a-n- -P-e-m-b-a-h-a-s-a-n- -M-.- -f-u-r-f-u-r- -d-a-n- -s-e-b-a-g-i-a-n- -b-e-s-a-r- -s-p-e-s-i-e-s- -M-a-l-a-s-s-e-z-i-a- -m-e-m-b-u-t-u-h-k-a-n- -a-s-a-m- -l-e-m-a-k- -r-a-n-t-a-i- -p-a-n-j-a-n-g- -u-n-t-u-k- -t-u-m-b-u-h- -(-l-i-p-i-d---d-e-p-e-n-d-e-n-t-)-,- -k-e-c-u-a-l-i- -M-.- -p-a-c-h-y-d-e-r-m-a-t-i-s-.- -K-a-r-e-n-a- -i-t-u-,- -k-u-l-t-u-r- -m-e-m-e-r-l-u-k-a-n- -p-e-l-a-p-i-s-a-n- -m-i-n-y-a-k- -z-a-i-t-u-n- -s-t-e-r-i-l- -d-i- -p-e-r-m-u-k-a-a-n- -S-D-A- -a-t-a-u- -m-e-d-i-a- -k-h-u-s-u-s- -s-e-p-e-r-t-i- -a-g-a-r- -D-i-x-o-n-.- -K-l-o-r-a-m-f-e-n-i-k-o-l- -t-i-d-a-k- -m-e-n-g-h-a-m-b-a-t- -j-a-m-u-r-.- -D-a-l-a-m- -p-r-a-k-t-i-k- -r-u-t-i-n-,- -d-i-a-g-n-o-s-i-s- -p-i-t-i-r-i-a-s-i-s- -v-e-r-s-i-k-o-l-o-r- -c-u-k-u-p- -d-e-n-g-a-n- -p-e-m-e-r-i-k-s-a-a-n- -K-O-H-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-a-l-a-s-s-e-z-i-a- -d-i-h-a-m-b-a-t- -k-l-o-r-a-m-f-e-n-i-k-o-l-;- -g-u-n-a-k-a-n- -m-e-d-i-a- -t-a-n-p-a- -a-n-t-i-b-i-o-t-i-k-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-S-u-h-u- -t-e-r-l-a-l-u- -r-e-n-d-a-h-;- -i-n-k-u-b-a-s-i- -p-a-d-a- -4-2-°-C-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-a-l-a-s-s-e-z-i-a- -m-e-m-e-r-l-u-k-a-n- -C-O-₂-;- -i-n-k-u-b-a-s-i- -d-a-l-a-m- -s-u-n-g-k-u-p- -l-i-l-i-n-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-a-l-a-s-s-e-z-i-a- -b-e-r-s-i-f-a-t- -l-i-p-o-f-i-l-i-k-;- -g-u-n-a-k-a-n- -S-D-A- -y-a-n-g- -d-i-l-a-p-i-s-i- -m-i-n-y-a-k- -z-a-i-t-u-n- -s-t-e-r-i-l- -a-t-a-u- -a-g-a-r- -D-i-x-o-n-/-L-e-e-m-i-n-g---N-o-t-m-a-n-",
+            "is_correct": true
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-a-l-a-s-s-e-z-i-a- -h-a-n-y-a- -t-u-m-b-u-h- -p-a-d-a- -m-e-d-i-a- -c-a-i-r-;- -g-u-n-a-k-a-n- -k-a-l-d-u- -S-a-b-o-u-r-a-u-d-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-e-m-e-r-i-k-s-a-a-n- -l-a-m-p-u- -W-o-o-d- -d-i-l-a-k-u-k-a-n- -p-a-d-a- -b-e-b-e-r-a-p-a- -p-a-s-i-e-n-.- -L-e-s-i- -k-u-l-i-t- -p-u-n-g-g-u-n-g- -b-e-r-s-i-s-i-k- -h-a-l-u-s- -y-a-n-g- -m-e-m-b-e-r-i-k-a-n- -f-l-u-o-r-e-s-e-n-s-i- -k-u-n-i-n-g- -k-e-e-m-a-s-a-n- -h-i-n-g-g-a- -k-u-n-i-n-g- -k-e-h-i-j-a-u-a-n- -p-u-c-a-t- -p-a-l-i-n-g- -s-e-s-u-a-i- -d-e-n-g-a-n- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -C- -P-i-t-i-r-i-a-s-i-s- -v-e-r-s-i-k-o-l-o-r- -o-l-e-h- -M-a-l-a-s-s-e-z-i-a- -P-e-m-b-a-h-a-s-a-n- -P-i-t-i-r-i-a-s-i-s- -v-e-r-s-i-k-o-l-o-r- -m-e-m-b-e-r-i-k-a-n- -f-l-u-o-r-e-s-e-n-s-i- -k-u-n-i-n-g- -k-e-e-m-a-s-a-n-/-k-u-n-i-n-g- -k-e-h-i-j-a-u-a-n- -p-u-c-a-t- -p-a-d-a- -l-a-m-p-u- -W-o-o-d-.- -E-r-i-t-r-a-s-m-a- -b-e-r-f-l-u-o-r-e-s-e-n-s-i- -m-e-r-a-h- -k-o-r-a-l- -(-p-o-r-f-i-r-i-n- -b-a-k-t-e-r-i-)-.- -M-.- -c-a-n-i-s- -m-e-m-b-e-r-i-k-a-n- -f-l-u-o-r-e-s-e-n-s-i- -h-i-j-a-u- -t-e-r-a-n-g- -p-a-d-a- -r-a-m-b-u-t-,- -b-u-k-a-n- -p-a-d-a- -k-u-l-i-t- -p-u-n-g-g-u-n-g-.- -E-.- -f-l-o-c-c-o-s-u-m- -d-a-n- -C-a-n-d-i-d-a- -t-i-d-a-k- -b-e-r-f-l-u-o-r-e-s-e-n-s-i-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-E-r-i-t-r-a-s-m-a- -o-l-e-h- -C-o-r-y-n-e-b-a-c-t-e-r-i-u-m- -m-i-n-u-t-i-s-s-i-m-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-T-i-n-e-a- -k-a-p-i-t-i-s- -o-l-e-h- -M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s- -p-a-d-a- -r-a-m-b-u-t-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-P-i-t-i-r-i-a-s-i-s- -v-e-r-s-i-k-o-l-o-r- -o-l-e-h- -M-a-l-a-s-s-e-z-i-a-",
+            "is_correct": true
+          },
+          {
+            "option_label": "D",
+            "option_text": "-T-i-n-e-a- -k-r-u-r-i-s- -o-l-e-h- -E-p-i-d-e-r-m-o-p-h-y-t-o-n- -f-l-o-c-c-o-s-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-K-a-n-d-i-d-i-a-s-i-s- -i-n-t-e-r-t-r-i-g-i-n-o-s-a-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-u-s-k-e-s-m-a-s- -m-e-m-e-r-l-u-k-a-n- -m-e-t-o-d-e- -p-e-n-g-a-m-b-i-l-a-n- -s-a-m-p-e-l- -y-a-n-g- -c-e-p-a-t- -d-a-n- -n-o-n---i-n-v-a-s-i-f- -u-n-t-u-k- -k-o-n-f-i-r-m-a-s-i- -p-i-t-i-r-i-a-s-i-s- -v-e-r-s-i-k-o-l-o-r- -p-a-d-a- -a-n-a-k- -y-a-n-g- -t-i-d-a-k- -k-o-o-p-e-r-a-t-i-f- -s-a-a-t- -a-k-a-n- -d-i-k-e-r-o-k- -d-e-n-g-a-n- -s-k-a-l-p-e-l-.- -M-e-t-o-d-e- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -E- -M-e-n-e-m-p-e-l-k-a-n- -s-e-l-o-t-i-p- -t-r-a-n-s-p-a-r-a-n- -p-a-d-a- -l-e-s-i- -l-a-l-u- -m-e-n-e-m-p-e-l-k-a-n-n-y-a- -p-a-d-a- -k-a-c-a- -o-b-j-e-k- -y-a-n-g- -t-e-l-a-h- -d-i-t-e-t-e-s-i- -m-e-t-i-l-e-n- -b-i-r-u- -a-t-a-u- -K-O-H---t-i-n-t-a- -P-a-r-k-e-r- -P-e-m-b-a-h-a-s-a-n- -T-e-k-n-i-k- -s-e-l-o-t-i-p- -t-r-a-n-s-p-a-r-a-n- -(-c-e-l-l-o-p-h-a-n-e- -t-a-p-e-)- -m-e-n-g-a-n-g-k-a-t- -s-i-s-i-k- -s-u-p-e-r-f-i-s-i-a-l- -t-e-m-p-a-t- -M-a-l-a-s-s-e-z-i-a- -b-e-r-a-d-a-.- -S-e-l-o-t-i-p- -k-e-m-u-d-i-a-n- -d-i-t-e-m-p-e-l- -p-a-d-a- -k-a-c-a- -o-b-j-e-k- -d-e-n-g-a-n- -m-e-t-i-l-e-n- -b-i-r-u- -a-t-a-u- -K-O-H---t-i-n-t-a- -P-a-r-k-e-r-,- -d-a-n- -e-l-e-m-e-n- -j-a-m-u-r- -t-a-m-p-a-k- -j-e-l-a-s-.- -B-i-o-p-s-i- -b-e-r-s-i-f-a-t- -i-n-v-a-s-i-f-,- -s-w-a-b- -k-u-r-a-n-g- -e-f-e-k-t-i-f- -m-e-n-g-a-m-b-i-l- -s-i-s-i-k-,- -d-a-n- -k-u-l-t-u-r- -t-i-d-a-k- -r-u-t-i-n- -d-i-l-a-k-u-k-a-n- -u-n-t-u-k- -p-i-t-i-r-i-a-s-i-s- -v-e-r-s-i-k-o-l-o-r-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-S-w-a-b- -k-a-p-a-s- -b-a-s-a-h- -p-a-d-a- -l-e-s-i- -l-a-l-u- -d-i-t-a-n-a-m- -p-a-d-a- -S-D-A-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-B-i-o-p-s-i- -k-u-l-i-t-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-A-s-p-i-r-a-s-i- -j-a-r-u-m- -h-a-l-u-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-P-e-n-c-a-b-u-t-a-n- -r-a-m-b-u-t- -d-i- -s-e-k-i-t-a-r- -l-e-s-i-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-n-e-m-p-e-l-k-a-n- -s-e-l-o-t-i-p- -t-r-a-n-s-p-a-r-a-n- -p-a-d-a- -l-e-s-i- -l-a-l-u- -m-e-n-e-m-p-e-l-k-a-n-n-y-a- -p-a-d-a- -k-a-c-a- -o-b-j-e-k- -y-a-n-g- -t-e-l-a-h- -d-i-t-e-t-e-s-i- -m-e-t-i-l-e-n- -b-i-r-u- -a-t-a-u- -K-O-H---t-i-n-t-a- -P-a-r-k-e-r-",
+            "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "-K-e-r-o-k-a-n- -k-u-l-i-t- -l-i-p-a-t- -p-a-h-a- -p-a-s-i-e-n- -t-i-n-e-a- -k-r-u-r-i-s- -d-i-k-u-l-t-u-r- -d-a-n- -m-e-n-g-h-a-s-i-l-k-a-n- -k-o-l-o-n-i- -d-a-t-a-r-,- -b-e-r-b-u-b-u-k-,- -b-e-r-w-a-r-n-a- -k-u-n-i-n-g- -k-e-h-i-j-a-u-a-n- -(-k-h-a-k-i-)-.- -M-i-k-r-o-s-k-o-p-i-s- -L-P-C-B-:- -m-a-k-r-o-k-o-n-i-d-i-a- -b-e-r-b-e-n-t-u-k- -g-a-d-a- -(-c-l-u-b---s-h-a-p-e-d-)-,- -b-e-r-d-i-n-d-i-n-g- -t-i-p-i-s- -d-a-n- -h-a-l-u-s-,- -2---4- -s-e-l-,- -t-e-r-s-u-s-u-n- -t-u-n-g-g-a-l- -a-t-a-u- -b-e-r-g-e-r-o-m-b-o-l- -2---3-;- -m-i-k-r-o-k-o-n-i-d-i-a- -t-i-d-a-k- -d-i-t-e-m-u-k-a-n-.- -I-d-e-n-t-i-f-i-k-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -B- -E-p-i-d-e-r-m-o-p-h-y-t-o-n- -f-l-o-c-c-o-s-u-m- -P-e-m-b-a-h-a-s-a-n- -E-.- -f-l-o-c-c-o-s-u-m- -t-i-d-a-k- -m-e-m-b-e-n-t-u-k- -m-i-k-r-o-k-o-n-i-d-i-a-,- -m-e-m-i-l-i-k-i- -m-a-k-r-o-k-o-n-i-d-i-a- -b-e-r-b-e-n-t-u-k- -g-a-d-a- -b-e-r-d-i-n-d-i-n-g- -h-a-l-u-s- -y-a-n-g- -b-e-r-g-e-r-o-m-b-o-l-,- -d-a-n- -k-o-l-o-n-i-n-y-a- -b-e-r-w-a-r-n-a- -k-h-a-k-i-.- -G-e-n-u-s- -i-n-i- -m-e-n-y-e-r-a-n-g- -k-u-l-i-t- -d-a-n- -k-u-k-u-,- -t-e-t-a-p-i- -t-i-d-a-k- -m-e-n-y-e-r-a-n-g- -r-a-m-b-u-t-.- -T-r-i-c-h-o-p-h-y-t-o-n- -m-e-m-b-e-n-t-u-k- -b-a-n-y-a-k- -m-i-k-r-o-k-o-n-i-d-i-a-,- -s-e-d-a-n-g-k-a-n- -m-a-k-r-o-k-o-n-i-d-i-a- -M-i-c-r-o-s-p-o-r-u-m- -b-e-r-b-e-n-t-u-k- -k-u-m-p-a-r-a-n- -d-e-n-g-a-n- -d-i-n-d-i-n-g- -k-a-s-a-r-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -r-u-b-r-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-E-p-i-d-e-r-m-o-p-h-y-t-o-n- -f-l-o-c-c-o-s-u-m-",
+            "is_correct": true
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -m-e-n-t-a-g-r-o-p-h-y-t-e-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-i-c-r-o-s-p-o-r-u-m- -g-y-p-s-e-u-m-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-A-n-a-k- -6- -t-a-h-u-n- -y-a-n-g- -m-e-m-e-l-i-h-a-r-a- -k-u-c-i-n-g- -m-e-n-g-a-l-a-m-i- -l-e-s-i- -b-u-l-a-t- -b-e-r-s-i-s-i-k- -d-i- -k-u-l-i-t- -k-e-p-a-l-a- -d-e-n-g-a-n- -r-a-m-b-u-t- -p-a-t-a-h-.- -K-u-l-t-u-r- -m-e-n-g-h-a-s-i-l-k-a-n- -k-o-l-o-n-i- -p-u-t-i-h- -s-e-p-e-r-t-i- -k-a-p-a-s- -d-e-n-g-a-n- -d-a-s-a-r- -(-r-e-v-e-r-s-e-)- -k-u-n-i-n-g- -l-e-m-o-n-.- -M-i-k-r-o-s-k-o-p-i-s-:- -m-a-k-r-o-k-o-n-i-d-i-a- -b-e-r-b-e-n-t-u-k- -k-u-m-p-a-r-a-n- -(-s-p-i-n-d-l-e-)-,- -b-e-r-d-i-n-d-i-n-g- -t-e-b-a-l- -d-a-n- -k-a-s-a-r- -(-e-c-h-i-n-u-l-a-t-e-)-,- -6---1-5- -s-e-l-,- -d-e-n-g-a-n- -u-j-u-n-g- -m-e-r-u-n-c-i-n-g- -d-a-n- -s-e-r-i-n-g- -m-e-l-e-n-g-k-u-n-g-.- -I-d-e-n-t-i-f-i-k-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -D- -M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s- -P-e-m-b-a-h-a-s-a-n- -M-.- -c-a-n-i-s- -a-d-a-l-a-h- -d-e-r-m-a-t-o-f-i-t- -z-o-o-f-i-l-i-k- -(-d-a-r-i- -k-u-c-i-n-g- -a-t-a-u- -a-n-j-i-n-g-)- -d-e-n-g-a-n- -m-a-k-r-o-k-o-n-i-d-i-a- -k-u-m-p-a-r-a-n- -b-e-r-d-i-n-d-i-n-g- -t-e-b-a-l- -k-a-s-a-r-,- -6---1-5- -s-e-l-,- -u-j-u-n-g- -a-s-i-m-e-t-r-i-s-/-m-e-l-e-n-g-k-u-n-g-,- -d-a-n- -r-e-v-e-r-s-e- -k-u-n-i-n-g- -l-e-m-o-n-.- -R-a-m-b-u-t- -y-a-n-g- -t-e-r-i-n-f-e-k-s-i- -b-e-r-f-l-u-o-r-e-s-e-n-s-i- -h-i-j-a-u- -t-e-r-a-n-g-.- -M-.- -g-y-p-s-e-u-m- -m-e-m-i-l-i-k-i- -m-a-k-r-o-k-o-n-i-d-i-a- -s-i-m-e-t-r-i-s-,- -b-e-r-d-i-n-d-i-n-g- -t-i-p-i-s-,- -4---6- -s-e-l-,- -d-e-n-g-a-n- -k-o-l-o-n-i- -c-o-k-l-a-t- -k-a-y-u- -m-a-n-i-s- -b-e-r-b-u-b-u-k-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-i-c-r-o-s-p-o-r-u-m- -g-y-p-s-e-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -t-o-n-s-u-r-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-E-p-i-d-e-r-m-o-p-h-y-t-o-n- -f-l-o-c-c-o-s-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s-",
+            "is_correct": true
+          },
+          {
+            "option_label": "E",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -r-u-b-r-u-m-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-I-s-o-l-a-t- -d-e-r-m-a-t-o-f-i-t- -d-a-r-i- -k-u-k-u- -j-e-m-p-o-l- -k-a-k-i- -m-e-n-u-n-j-u-k-k-a-n- -k-o-l-o-n-i- -p-u-t-i-h- -b-e-r-b-u-l-u- -h-a-l-u-s- -d-e-n-g-a-n- -d-a-s-a-r- -m-e-r-a-h- -a-n-g-g-u-r-.- -M-i-k-r-o-s-k-o-p-i-s-:- -m-i-k-r-o-k-o-n-i-d-i-a- -b-e-r-b-e-n-t-u-k- -t-e-t-e-s- -a-i-r- -m-a-t-a- -(-t-e-a-r---d-r-o-p-)- -t-e-r-s-u-s-u-n- -t-u-n-g-g-a-l- -d-i- -s-e-p-a-n-j-a-n-g- -h-i-f-a-;- -m-a-k-r-o-k-o-n-i-d-i-a- -j-a-r-a-n-g- -d-a-n- -b-e-r-b-e-n-t-u-k- -p-e-n-s-i-l-.- -U-j-i- -u-r-e-a-s-e- -n-e-g-a-t-i-f- -s-e-t-e-l-a-h- -7- -h-a-r-i- -d-a-n- -u-j-i- -p-e-r-f-o-r-a-s-i- -r-a-m-b-u-t- -n-e-g-a-t-i-f-.- -I-d-e-n-t-i-f-i-k-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -A- -T-r-i-c-h-o-p-h-y-t-o-n- -r-u-b-r-u-m- -P-e-m-b-a-h-a-s-a-n- -T-.- -r-u-b-r-u-m-,- -p-e-n-y-e-b-a-b- -t-e-r-s-e-r-i-n-g- -o-n-i-k-o-m-i-k-o-s-i-s- -d-a-n- -t-i-n-e-a- -p-e-d-i-s-,- -m-e-m-i-l-i-k-i- -c-i-r-i- -p-i-g-m-e-n- -m-e-r-a-h- -a-n-g-g-u-r- -p-a-d-a- -d-a-s-a-r- -k-o-l-o-n-i-,- -m-i-k-r-o-k-o-n-i-d-i-a- -t-e-t-e-s- -a-i-r- -m-a-t-a- -t-e-r-s-u-s-u-n- -t-u-n-g-g-a-l-,- -u-r-e-a-s-e- -n-e-g-a-t-i-f- -d-a-l-a-m- -7- -h-a-r-i-,- -d-a-n- -p-e-r-f-o-r-a-s-i- -r-a-m-b-u-t- -n-e-g-a-t-i-f-.- -T-.- -m-e-n-t-a-g-r-o-p-h-y-t-e-s- -m-e-m-i-l-i-k-i- -m-i-k-r-o-k-o-n-i-d-i-a- -b-u-l-a-t- -b-e-r-g-e-r-o-m-b-o-l- -s-e-p-e-r-t-i- -a-n-g-g-u-r-,- -h-i-f-a- -s-p-i-r-a-l-,- -u-r-e-a-s-e- -p-o-s-i-t-i-f- -d-a-l-a-m- -2---3- -h-a-r-i-,- -d-a-n- -p-e-r-f-o-r-a-s-i- -r-a-m-b-u-t- -p-o-s-i-t-i-f-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -r-u-b-r-u-m-",
+            "is_correct": true
+          },
+          {
+            "option_label": "B",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -m-e-n-t-a-g-r-o-p-h-y-t-e-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -t-o-n-s-u-r-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-E-p-i-d-e-r-m-o-p-h-y-t-o-n- -f-l-o-c-c-o-s-u-m-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-U-j-i- -p-e-r-f-o-r-a-s-i- -r-a-m-b-u-t- -i-n- -v-i-t-r-o- -d-i-l-a-k-u-k-a-n- -d-e-n-g-a-n- -m-e-n-g-i-n-o-k-u-l-a-s-i-k-a-n- -i-s-o-l-a-t- -d-e-r-m-a-t-o-f-i-t- -p-a-d-a- -p-o-t-o-n-g-a-n- -r-a-m-b-u-t- -s-t-e-r-i-l- -d-a-l-a-m- -a-i-r- -s-t-e-r-i-l- -d-e-n-g-a-n- -b-e-b-e-r-a-p-a- -t-e-t-e-s- -e-k-s-t-r-a-k- -r-a-g-i-,- -l-a-l-u- -d-i-a-m-a-t-i- -s-e-t-e-l-a-h- -2---4- -m-i-n-g-g-u-.- -U-j-i- -i-n-i- -t-e-r-u-t-a-m-a- -d-i-g-u-n-a-k-a-n- -u-n-t-u-k- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -C- -M-e-m-b-e-d-a-k-a-n- -T-.- -m-e-n-t-a-g-r-o-p-h-y-t-e-s- -(-p-o-s-i-t-i-f-,- -m-e-m-b-e-n-t-u-k- -p-e-r-f-o-r-a-s-i- -b-e-r-b-e-n-t-u-k- -b-a-j-i-)- -d-a-r-i- -T-.- -r-u-b-r-u-m- -(-n-e-g-a-t-i-f-)- -P-e-m-b-a-h-a-s-a-n- -T-.- -m-e-n-t-a-g-r-o-p-h-y-t-e-s- -m-a-m-p-u- -m-e-n-e-m-b-u-s- -b-a-t-a-n-g- -r-a-m-b-u-t- -d-a-n- -m-e-m-b-e-n-t-u-k- -p-e-r-f-o-r-a-s-i- -b-e-r-b-e-n-t-u-k- -b-a-j-i- -y-a-n-g- -t-e-g-a-k- -l-u-r-u-s- -s-u-m-b-u- -r-a-m-b-u-t-,- -s-e-d-a-n-g-k-a-n- -T-.- -r-u-b-r-u-m- -t-i-d-a-k-.- -U-j-i- -i-n-i-,- -b-e-r-s-a-m-a- -u-j-i- -u-r-e-a-s-e-,- -m-e-n-j-a-d-i- -p-e-m-b-e-d-a- -k-l-a-s-i-k- -k-e-d-u-a- -s-p-e-s-i-e-s- -t-e-r-s-e-b-u-t-.- -T-i-p-e- -i-n-v-a-s-i- -e-k-t-o-t-r-i-k-s- -a-t-a-u- -e-n-d-o-t-r-i-k-s- -d-i-n-i-l-a-i- -l-a-n-g-s-u-n-g- -d-a-r-i- -r-a-m-b-u-t- -p-a-s-i-e-n-,- -b-u-k-a-n- -d-a-r-i- -u-j-i- -i-n-i-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-m-b-e-d-a-k-a-n- -M-i-c-r-o-s-p-o-r-u-m- -d-a-r-i- -E-p-i-d-e-r-m-o-p-h-y-t-o-n-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-M-e-n-d-e-t-e-k-s-i- -k-e-m-a-m-p-u-a-n- -i-s-o-l-a-t- -m-e-n-g-h-a-s-i-l-k-a-n- -f-l-u-o-r-e-s-e-n-s-i-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-m-b-e-d-a-k-a-n- -T-.- -m-e-n-t-a-g-r-o-p-h-y-t-e-s- -(-p-o-s-i-t-i-f-,- -m-e-m-b-e-n-t-u-k- -p-e-r-f-o-r-a-s-i- -b-e-r-b-e-n-t-u-k- -b-a-j-i-)- -d-a-r-i- -T-.- -r-u-b-r-u-m- -(-n-e-g-a-t-i-f-)-",
+            "is_correct": true
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-n-e-n-t-u-k-a-n- -k-e-p-e-k-a-a-n- -i-s-o-l-a-t- -t-e-r-h-a-d-a-p- -a-n-t-i-j-a-m-u-r-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-m-b-e-d-a-k-a-n- -i-n-v-a-s-i- -e-k-t-o-t-r-i-k-s- -d-a-r-i- -e-n-d-o-t-r-i-k-s- -p-a-d-a- -p-a-s-i-e-n-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-a-d-a- -p-e-m-e-r-i-k-s-a-a-n- -K-O-H- -k-e-r-o-k-a-n- -k-u-l-i-t- -d-a-r-i- -t-e-p-i- -l-e-s-i- -t-i-n-e-a- -k-o-r-p-o-r-i-s-,- -e-l-e-m-e-n- -j-a-m-u-r- -y-a-n-g- -m-e-n-u-n-j-u-k-k-a-n- -h-a-s-i-l- -p-o-s-i-t-i-f- -d-e-r-m-a-t-o-f-i-t-o-s-i-s- -a-d-a-l-a-h- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -E- -H-i-f-a- -h-i-a-l-i-n- -b-e-r-s-e-p-t-a-,- -b-e-r-c-a-b-a-n-g-,- -d-a-n- -d-a-p-a-t- -t-e-r-p-u-t-u-s- -m-e-m-b-e-n-t-u-k- -a-r-t-r-o-k-o-n-i-d-i-a- -P-e-m-b-a-h-a-s-a-n- -D-e-r-m-a-t-o-f-i-t- -d-a-l-a-m- -j-a-r-i-n-g-a-n- -t-a-m-p-a-k- -s-e-b-a-g-a-i- -h-i-f-a- -h-i-a-l-i-n- -b-e-r-s-e-p-t-a- -d-a-n- -b-e-r-c-a-b-a-n-g- -y-a-n-g- -d-a-p-a-t- -t-e-r-p-u-t-u-s- -m-e-n-j-a-d-i- -a-r-t-r-o-k-o-n-i-d-i-a-.- -P-i-l-i-h-a-n- -l-a-i-n- -m-e-n-g-g-a-m-b-a-r-k-a-n- -C-a-n-d-i-d-a- -(-s-e-l- -r-a-g-i- -b-e-r-t-u-n-a-s- -d-a-n- -p-s-e-u-d-o-h-i-f-a-)-,- -M-a-l-a-s-s-e-z-i-a- -(-h-i-f-a- -p-e-n-d-e-k- -d-a-n- -s-e-l- -r-a-g-i- -b-e-r-g-e-r-o-m-b-o-l-)-,- -C-r-y-p-t-o-c-o-c-c-u-s- -(-b-e-r-k-a-p-s-u-l-)-,- -d-a-n- -M-u-c-o-r-a-l-e-s- -(-h-i-f-a- -l-e-b-a-r- -t-i-d-a-k- -b-e-r-s-e-p-t-a-)-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-S-e-l- -r-a-g-i- -b-e-r-t-u-n-a-s- -d-e-n-g-a-n- -p-s-e-u-d-o-h-i-f-a-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-H-i-f-a- -p-e-n-d-e-k- -d-a-n- -s-e-l- -r-a-g-i- -b-u-l-a-t- -b-e-r-g-e-r-o-m-b-o-l-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-S-e-l- -r-a-g-i- -d-e-n-g-a-n- -k-a-p-s-u-l- -t-e-b-a-l-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-H-i-f-a- -l-e-b-a-r- -t-i-d-a-k- -b-e-r-s-e-p-t-a- -y-a-n-g- -b-e-r-c-a-b-a-n-g- -t-e-g-a-k- -l-u-r-u-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-H-i-f-a- -h-i-a-l-i-n- -b-e-r-s-e-p-t-a-,- -b-e-r-c-a-b-a-n-g-,- -d-a-n- -d-a-p-a-t- -t-e-r-p-u-t-u-s- -m-e-m-b-e-n-t-u-k- -a-r-t-r-o-k-o-n-i-d-i-a-",
+            "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "-A-T-L-M- -a-k-a-n- -m-e-n-g-a-m-b-i-l- -k-e-r-o-k-a-n- -k-u-l-i-t- -d-a-r-i- -l-e-s-i- -t-i-n-e-a- -k-o-r-p-o-r-i-s- -b-e-r-b-e-n-t-u-k- -c-i-n-c-i-n- -d-e-n-g-a-n- -b-a-g-i-a-n- -t-e-n-g-a-h- -y-a-n-g- -t-a-m-p-a-k- -m-e-n-y-e-m-b-u-h-.- -P-r-o-s-e-d-u-r- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -A- -M-e-m-b-e-r-s-i-h-k-a-n- -l-e-s-i- -d-e-n-g-a-n- -a-l-k-o-h-o-l- -7-0-%-,- -l-a-l-u- -m-e-n-g-e-r-o-k- -b-a-g-i-a-n- -t-e-p-i- -l-e-s-i- -y-a-n-g- -a-k-t-i-f- -d-e-n-g-a-n- -s-k-a-l-p-e-l- -t-u-m-p-u-l- -k-e- -a-r-a-h- -l-u-a-r- -P-e-m-b-a-h-a-s-a-n- -J-a-m-u-r- -p-a-l-i-n-g- -b-a-n-y-a-k- -t-e-r-d-a-p-a-t- -d-i- -t-e-p-i- -l-e-s-i- -y-a-n-g- -a-k-t-i-f- -(-m-e-n-i-n-g-g-i- -d-a-n- -b-e-r-s-i-s-i-k-)-,- -s-e-d-a-n-g-k-a-n- -b-a-g-i-a-n- -t-e-n-g-a-h- -c-e-n-d-e-r-u-n-g- -m-e-n-y-e-m-b-u-h-.- -P-e-m-b-e-r-s-i-h-a-n- -d-e-n-g-a-n- -a-l-k-o-h-o-l- -7-0-%- -m-e-n-g-u-r-a-n-g-i- -k-o-n-t-a-m-i-n-a-n-.- -P-e-n-g-g-u-n-a-a-n- -a-n-t-i-j-a-m-u-r- -t-o-p-i-k-a-l- -s-e-b-a-i-k-n-y-a- -d-i-h-e-n-t-i-k-a-n- -s-e-k-i-t-a-r- -1---2- -m-i-n-g-g-u- -s-e-b-e-l-u-m- -p-e-n-g-a-m-b-i-l-a-n- -s-a-m-p-e-l- -k-a-r-e-n-a- -d-a-p-a-t- -m-e-n-y-e-b-a-b-k-a-n- -h-a-s-i-l- -n-e-g-a-t-i-f- -p-a-l-s-u-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-m-b-e-r-s-i-h-k-a-n- -l-e-s-i- -d-e-n-g-a-n- -a-l-k-o-h-o-l- -7-0-%-,- -l-a-l-u- -m-e-n-g-e-r-o-k- -b-a-g-i-a-n- -t-e-p-i- -l-e-s-i- -y-a-n-g- -a-k-t-i-f- -d-e-n-g-a-n- -s-k-a-l-p-e-l- -t-u-m-p-u-l- -k-e- -a-r-a-h- -l-u-a-r-",
+            "is_correct": true
+          },
+          {
+            "option_label": "B",
+            "option_text": "-M-e-n-g-e-r-o-k- -b-a-g-i-a-n- -t-e-n-g-a-h- -l-e-s-i- -y-a-n-g- -s-u-d-a-h- -m-e-n-y-e-m-b-u-h-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-n-g-a-m-b-i-l- -s-w-a-b- -k-a-p-a-s- -t-a-n-p-a- -m-e-m-b-e-r-s-i-h-k-a-n- -l-e-s-i- -t-e-r-l-e-b-i-h- -d-a-h-u-l-u-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-m-i-n-t-a- -p-a-s-i-e-n- -m-e-n-g-o-l-e-s-k-a-n- -s-a-l-e-p- -a-n-t-i-j-a-m-u-r- -s-e-h-a-r-i- -s-e-b-e-l-u-m- -p-e-n-g-a-m-b-i-l-a-n- -s-a-m-p-e-l-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-m-b-e-r-s-i-h-k-a-n- -l-e-s-i- -d-e-n-g-a-n- -p-o-v-i-d-o-n-e- -i-o-d-i-n-e- -l-a-l-u- -m-e-n-g-e-r-o-k- -b-a-g-i-a-n- -t-e-n-g-a-h- -l-e-s-i-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-I-s-o-l-a-t- -d-a-r-i- -t-a-n-a-h- -h-a-l-a-m-a-n- -s-e-k-o-l-a-h- -d-a-n- -d-a-r-i- -l-e-s-i- -k-u-l-i-t- -a-n-a-k- -y-a-n-g- -s-e-r-i-n-g- -b-e-r-m-a-i-n- -t-a-n-a-h- -m-e-n-u-n-j-u-k-k-a-n- -k-o-l-o-n-i- -d-a-t-a-r- -b-e-r-b-u-b-u-k- -b-e-r-w-a-r-n-a- -c-o-k-l-a-t- -k-a-y-u- -m-a-n-i-s-.- -M-i-k-r-o-s-k-o-p-i-s-:- -m-a-k-r-o-k-o-n-i-d-i-a- -s-a-n-g-a-t- -b-a-n-y-a-k-,- -s-i-m-e-t-r-i-s-,- -b-e-r-d-i-n-d-i-n-g- -t-i-p-i-s- -d-a-n- -k-a-s-a-r-,- -4---6- -s-e-l-,- -d-e-n-g-a-n- -u-j-u-n-g- -m-e-m-b-u-l-a-t-.- -I-d-e-n-t-i-f-i-k-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -C- -M-i-c-r-o-s-p-o-r-u-m- -g-y-p-s-e-u-m- -P-e-m-b-a-h-a-s-a-n- -M-.- -g-y-p-s-e-u-m- -a-d-a-l-a-h- -d-e-r-m-a-t-o-f-i-t- -g-e-o-f-i-l-i-k- -(-h-a-b-i-t-a-t- -t-a-n-a-h-)- -d-e-n-g-a-n- -k-o-l-o-n-i- -b-e-r-b-u-b-u-k- -c-o-k-l-a-t- -k-a-y-u- -m-a-n-i-s- -d-a-n- -m-a-k-r-o-k-o-n-i-d-i-a- -y-a-n-g- -s-a-n-g-a-t- -b-a-n-y-a-k-,- -s-i-m-e-t-r-i-s-,- -b-e-r-d-i-n-d-i-n-g- -t-i-p-i-s- -k-a-s-a-r-,- -s-e-r-t-a- -4---6- -s-e-l-.- -B-e-r-b-e-d-a- -d-e-n-g-a-n- -M-.- -c-a-n-i-s- -y-a-n-g- -m-a-k-r-o-k-o-n-i-d-i-a-n-y-a- -b-e-r-d-i-n-d-i-n-g- -t-e-b-a-l-,- -6---1-5- -s-e-l-,- -d-e-n-g-a-n- -u-j-u-n-g- -m-e-r-u-n-c-i-n-g-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -m-e-n-t-a-g-r-o-p-h-y-t-e-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-i-c-r-o-s-p-o-r-u-m- -g-y-p-s-e-u-m-",
+            "is_correct": true
+          },
+          {
+            "option_label": "D",
+            "option_text": "-E-p-i-d-e-r-m-o-p-h-y-t-o-n- -f-l-o-c-c-o-s-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -r-u-b-r-u-m-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-K-u-l-t-u-r- -d-e-r-m-a-t-o-f-i-t- -p-a-d-a- -S-D-A- -d-e-n-g-a-n- -s-i-k-l-o-h-e-k-s-i-m-i-d- -d-i-i-n-k-u-b-a-s-i- -p-a-d-a- -s-u-h-u- -2-5---3-0-°-C-.- -H-a-s-i-l- -k-u-l-t-u-r- -b-a-r-u- -b-o-l-e-h- -d-i-l-a-p-o-r-k-a-n- -n-e-g-a-t-i-f- -s-e-t-e-l-a-h- -i-n-k-u-b-a-s-i- -m-i-n-i-m-a-l- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -B- -4- -m-i-n-g-g-u- -P-e-m-b-a-h-a-s-a-n- -D-e-r-m-a-t-o-f-i-t- -t-u-m-b-u-h- -l-a-m-b-a-t-.- -B-e-b-e-r-a-p-a- -s-p-e-s-i-e-s-,- -m-i-s-a-l-n-y-a- -T-.- -v-e-r-r-u-c-o-s-u-m- -d-a-n- -T-.- -v-i-o-l-a-c-e-u-m-,- -m-e-m-e-r-l-u-k-a-n- -2---4- -m-i-n-g-g-u- -u-n-t-u-k- -m-e-m-b-e-n-t-u-k- -k-o-l-o-n-i-.- -K-a-r-e-n-a- -i-t-u-,- -k-u-l-t-u-r- -d-i-a-m-a-t-i- -b-e-r-k-a-l-a- -d-a-n- -b-a-r-u- -d-i-l-a-p-o-r-k-a-n- -n-e-g-a-t-i-f- -s-e-t-e-l-a-h- -4- -m-i-n-g-g-u- -i-n-k-u-b-a-s-i-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-4-8- -j-a-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-4- -m-i-n-g-g-u-",
+            "is_correct": true
+          },
+          {
+            "option_label": "C",
+            "option_text": "-7- -h-a-r-i-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-3- -h-a-r-i-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-6- -b-u-l-a-n-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-A-n-a-k- -l-a-k-i---l-a-k-i- -8- -t-a-h-u-n- -m-e-n-d-e-r-i-t-a- -t-i-n-e-a- -k-a-p-i-t-i-s- -t-i-p-e- -b-l-a-c-k- -d-o-t- -(-r-a-m-b-u-t- -p-a-t-a-h- -t-e-p-a-t- -d-i- -p-e-r-m-u-k-a-a-n- -k-u-l-i-t- -k-e-p-a-l-a-)-.- -P-e-m-e-r-i-k-s-a-a-n- -l-a-m-p-u- -W-o-o-d- -n-e-g-a-t-i-f-.- -K-O-H- -r-a-m-b-u-t- -m-e-n-u-n-j-u-k-k-a-n- -a-r-t-r-o-k-o-n-i-d-i-a- -d-i- -d-a-l-a-m- -b-a-t-a-n-g- -r-a-m-b-u-t- -t-a-n-p-a- -m-e-r-u-s-a-k- -k-u-t-i-k-u-l-a-.- -T-i-p-e- -i-n-v-a-s-i- -d-a-n- -p-e-n-y-e-b-a-b- -y-a-n-g- -p-a-l-i-n-g- -m-u-n-g-k-i-n- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -E- -E-n-d-o-t-r-i-k-s-;- -T-r-i-c-h-o-p-h-y-t-o-n- -t-o-n-s-u-r-a-n-s- -P-e-m-b-a-h-a-s-a-n- -A-r-t-r-o-k-o-n-i-d-i-a- -d-i- -d-a-l-a-m- -b-a-t-a-n-g- -r-a-m-b-u-t- -d-e-n-g-a-n- -k-u-t-i-k-u-l-a- -u-t-u-h- -m-e-n-u-n-j-u-k-k-a-n- -i-n-v-a-s-i- -e-n-d-o-t-r-i-k-s-,- -d-a-n- -r-a-m-b-u-t- -y-a-n-g- -r-a-p-u-h- -p-a-t-a-h- -d-i- -p-e-r-m-u-k-a-a-n- -k-u-l-i-t- -k-e-p-a-l-a- -m-e-m-b-e-r-i- -g-a-m-b-a-r-a-n- -b-l-a-c-k- -d-o-t-.- -P-e-n-y-e-b-a-b- -t-e-r-s-e-r-i-n-g- -a-d-a-l-a-h- -T-.- -t-o-n-s-u-r-a-n-s- -(-j-u-g-a- -T-.- -v-i-o-l-a-c-e-u-m-)-,- -y-a-n-g- -t-i-d-a-k- -b-e-r-f-l-u-o-r-e-s-e-n-s-i-.- -I-n-v-a-s-i- -e-k-t-o-t-r-i-k-s- -o-l-e-h- -M-i-c-r-o-s-p-o-r-u-m- -m-e-m-b-e-n-t-u-k- -s-e-l-u-b-u-n-g- -a-r-t-r-o-k-o-n-i-d-i-a- -d-i- -l-u-a-r- -r-a-m-b-u-t- -d-a-n- -b-e-r-f-l-u-o-r-e-s-e-n-s-i- -h-i-j-a-u-,- -s-e-d-a-n-g-k-a-n- -f-a-v-u-s- -m-e-n-u-n-j-u-k-k-a-n- -h-i-f-a- -d-a-n- -r-o-n-g-g-a- -u-d-a-r-a- -d-i- -d-a-l-a-m- -r-a-m-b-u-t-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-E-k-t-o-t-r-i-k-s-;- -M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-E-k-t-o-t-r-i-k-s-;- -M-i-c-r-o-s-p-o-r-u-m- -a-u-d-o-u-i-n-i-i-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-F-a-v-u-s-;- -T-r-i-c-h-o-p-h-y-t-o-n- -s-c-h-o-e-n-l-e-i-n-i-i-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-E-n-d-o-t-r-i-k-s-;- -M-i-c-r-o-s-p-o-r-u-m- -g-y-p-s-e-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-E-n-d-o-t-r-i-k-s-;- -T-r-i-c-h-o-p-h-y-t-o-n- -t-o-n-s-u-r-a-n-s-",
+            "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "-P-a-d-a- -s-k-r-i-n-i-n-g- -t-i-n-e-a- -k-a-p-i-t-i-s- -d-i- -s-e-b-u-a-h- -p-e-s-a-n-t-r-e-n-,- -b-e-b-e-r-a-p-a- -h-e-l-a-i- -r-a-m-b-u-t- -m-e-m-b-e-r-i-k-a-n- -f-l-u-o-r-e-s-e-n-s-i- -h-i-j-a-u- -k-e-k-u-n-i-n-g-a-n- -t-e-r-a-n-g- -d-i- -b-a-w-a-h- -l-a-m-p-u- -W-o-o-d-.- -P-e-r-n-y-a-t-a-a-n- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -t-e-n-t-a-n-g- -t-e-m-u-a-n- -t-e-r-s-e-b-u-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -D- -M-e-n-u-n-j-u-k-k-a-n- -i-n-v-a-s-i- -e-k-t-o-t-r-i-k-s- -o-l-e-h- -M-i-c-r-o-s-p-o-r-u-m- -(-m-i-s-.- -M-.- -c-a-n-i-s-/-M-.- -a-u-d-o-u-i-n-i-i-)-;- -r-a-m-b-u-t- -y-a-n-g- -b-e-r-f-l-u-o-r-e-s-e-n-s-i- -d-i-p-i-l-i-h- -s-e-b-a-g-a-i- -s-a-m-p-e-l- -K-O-H- -d-a-n- -k-u-l-t-u-r- -P-e-m-b-a-h-a-s-a-n- -F-l-u-o-r-e-s-e-n-s-i- -h-i-j-a-u- -t-e-r-a-n-g- -b-e-r-a-s-a-l- -d-a-r-i- -p-t-e-r-i-d-i-n- -y-a-n-g- -d-i-h-a-s-i-l-k-a-n- -M-i-c-r-o-s-p-o-r-u-m- -p-a-d-a- -i-n-v-a-s-i- -e-k-t-o-t-r-i-k-s-.- -R-a-m-b-u-t- -y-a-n-g- -b-e-r-f-l-u-o-r-e-s-e-n-s-i- -a-d-a-l-a-h- -s-a-m-p-e-l- -t-e-r-b-a-i-k- -u-n-t-u-k- -K-O-H- -d-a-n- -k-u-l-t-u-r-.- -T-.- -t-o-n-s-u-r-a-n-s- -(-e-n-d-o-t-r-i-k-s-)- -t-i-d-a-k- -b-e-r-f-l-u-o-r-e-s-e-n-s-i-,- -d-a-n- -p-o-r-f-i-r-i-n- -b-a-k-t-e-r-i- -m-e-m-b-e-r-i- -w-a-r-n-a- -m-e-r-a-h- -k-o-r-a-l-.- -K-a-r-e-n-a- -t-i-d-a-k- -s-e-m-u-a- -d-e-r-m-a-t-o-f-i-t- -b-e-r-f-l-u-o-r-e-s-e-n-s-i-,- -p-e-m-e-r-i-k-s-a-a-n- -K-O-H- -d-a-n- -k-u-l-t-u-r- -t-e-t-a-p- -d-i-p-e-r-l-u-k-a-n-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-n-u-n-j-u-k-k-a-n- -i-n-f-e-k-s-i- -e-n-d-o-t-r-i-k-s- -o-l-e-h- -T-r-i-c-h-o-p-h-y-t-o-n- -t-o-n-s-u-r-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-F-l-u-o-r-e-s-e-n-s-i- -b-e-r-a-s-a-l- -d-a-r-i- -p-o-r-f-i-r-i-n- -y-a-n-g- -d-i-h-a-s-i-l-k-a-n- -b-a-k-t-e-r-i-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-n-u-n-j-u-k-k-a-n- -p-i-e-d-r-a- -h-i-t-a-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-n-u-n-j-u-k-k-a-n- -i-n-v-a-s-i- -e-k-t-o-t-r-i-k-s- -o-l-e-h- -M-i-c-r-o-s-p-o-r-u-m- -(-m-i-s-.- -M-.- -c-a-n-i-s-/-M-.- -a-u-d-o-u-i-n-i-i-)-;- -r-a-m-b-u-t- -y-a-n-g- -b-e-r-f-l-u-o-r-e-s-e-n-s-i- -d-i-p-i-l-i-h- -s-e-b-a-g-a-i- -s-a-m-p-e-l- -K-O-H- -d-a-n- -k-u-l-t-u-r-",
+            "is_correct": true
+          },
+          {
+            "option_label": "E",
+            "option_text": "-H-a-s-i-l- -i-n-i- -m-e-n-y-i-n-g-k-i-r-k-a-n- -k-e-b-u-t-u-h-a-n- -p-e-m-e-r-i-k-s-a-a-n- -K-O-H- -d-a-n- -k-u-l-t-u-r-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-a-d-a- -b-a-t-a-n-g- -r-a-m-b-u-t- -k-e-p-a-l-a- -s-e-o-r-a-n-g- -p-e-t-a-n-i- -d-i-t-e-m-u-k-a-n- -n-o-d-u-l- -h-i-t-a-m- -k-e-r-a-s- -y-a-n-g- -m-e-l-e-k-a-t- -e-r-a-t-.- -P-e-m-e-r-i-k-s-a-a-n- -m-i-k-r-o-s-k-o-p-i-s- -n-o-d-u-l- -y-a-n-g- -d-i-h-a-n-c-u-r-k-a-n- -d-a-l-a-m- -K-O-H- -m-e-n-u-n-j-u-k-k-a-n- -a-s-k-u-s- -b-e-r-i-s-i- -a-s-k-o-s-p-o-r-a- -b-e-r-b-e-n-t-u-k- -k-u-m-p-a-r-a-n-.- -D-i-a-g-n-o-s-i-s- -d-a-n- -p-e-n-y-e-b-a-b-n-y-a- -a-d-a-l-a-h- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -C- -P-i-e-d-r-a- -h-i-t-a-m-;- -P-i-e-d-r-a-i-a- -h-o-r-t-a-e- -P-e-m-b-a-h-a-s-a-n- -P-i-e-d-r-a- -h-i-t-a-m- -d-i-s-e-b-a-b-k-a-n- -P-i-e-d-r-a-i-a- -h-o-r-t-a-e-,- -d-i-t-a-n-d-a-i- -n-o-d-u-l- -h-i-t-a-m- -k-e-r-a-s- -y-a-n-g- -m-e-l-e-k-a-t- -e-r-a-t- -p-a-d-a- -b-a-t-a-n-g- -r-a-m-b-u-t- -d-a-n- -b-e-r-i-s-i- -a-s-k-u-s- -d-e-n-g-a-n- -a-s-k-o-s-p-o-r-a- -k-u-m-p-a-r-a-n-.- -T-i-n-e-a- -n-i-g-r-a- -b-e-r-u-p-a- -m-a-k-u-l-a- -c-o-k-l-a-t---h-i-t-a-m- -d-i- -t-e-l-a-p-a-k- -t-a-n-g-a-n-,- -b-u-k-a-n- -p-a-d-a- -r-a-m-b-u-t-.- -T-r-i-k-o-m-i-k-o-s-i-s- -a-d-a-l-a-h- -i-n-f-e-k-s-i- -b-a-k-t-e-r-i- -p-a-d-a- -r-a-m-b-u-t- -a-k-s-i-l-a-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-P-i-e-d-r-a- -p-u-t-i-h-;- -T-r-i-c-h-o-s-p-o-r-o-n- -s-p-p-.-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-T-i-n-e-a- -k-a-p-i-t-i-s-;- -M-i-c-r-o-s-p-o-r-u-m- -c-a-n-i-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-P-i-e-d-r-a- -h-i-t-a-m-;- -P-i-e-d-r-a-i-a- -h-o-r-t-a-e-",
+            "is_correct": true
+          },
+          {
+            "option_label": "D",
+            "option_text": "-T-i-n-e-a- -n-i-g-r-a-;- -H-o-r-t-a-e-a- -w-e-r-n-e-c-k-i-i-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-T-r-i-k-o-m-i-k-o-s-i-s-;- -C-o-r-y-n-e-b-a-c-t-e-r-i-u-m- -s-p-p-.-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-R-a-m-b-u-t- -j-a-n-g-g-u-t- -s-e-o-r-a-n-g- -p-a-s-i-e-n- -m-e-n-u-n-j-u-k-k-a-n- -n-o-d-u-l- -l-u-n-a-k- -b-e-r-w-a-r-n-a- -p-u-t-i-h- -k-r-e-m- -y-a-n-g- -m-u-d-a-h- -d-i-l-e-p-a-s-.- -K-O-H- -m-e-n-u-n-j-u-k-k-a-n- -h-i-f-a-,- -a-r-t-r-o-k-o-n-i-d-i-a-,- -d-a-n- -b-l-a-s-t-o-k-o-n-i-d-i-a-.- -K-u-l-t-u-r- -p-a-d-a- -S-D-A- -t-a-n-p-a- -s-i-k-l-o-h-e-k-s-i-m-i-d- -m-e-n-g-h-a-s-i-l-k-a-n- -k-o-l-o-n-i- -k-h-a-m-i-r- -k-r-e-m- -b-e-r-k-e-r-u-t- -d-e-n-g-a-n- -u-j-i- -u-r-e-a-s-e- -p-o-s-i-t-i-f-.- -P-e-n-y-e-b-a-b- -y-a-n-g- -p-a-l-i-n-g- -m-u-n-g-k-i-n- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -A- -T-r-i-c-h-o-s-p-o-r-o-n- -s-p-p-.- -(-p-i-e-d-r-a- -p-u-t-i-h-)- -P-e-m-b-a-h-a-s-a-n- -P-i-e-d-r-a- -p-u-t-i-h- -d-i-s-e-b-a-b-k-a-n- -T-r-i-c-h-o-s-p-o-r-o-n- -s-p-p-.- -(-m-i-s-.- -T-.- -i-n-k-i-n-,- -T-.- -o-v-o-i-d-e-s-,- -T-.- -a-s-a-h-i-i-)- -y-a-n-g- -m-e-m-b-e-n-t-u-k- -h-i-f-a-,- -a-r-t-r-o-k-o-n-i-d-i-a-,- -d-a-n- -b-l-a-s-t-o-k-o-n-i-d-i-a-,- -d-e-n-g-a-n- -k-o-l-o-n-i- -k-r-e-m- -b-e-r-k-e-r-u-t- -d-a-n- -u-r-e-a-s-e- -p-o-s-i-t-i-f-.- -C-a-n-d-i-d-a- -u-r-e-a-s-e- -n-e-g-a-t-i-f- -d-a-n- -t-i-d-a-k- -m-e-m-b-e-n-t-u-k- -a-r-t-r-o-k-o-n-i-d-i-a-.- -C-r-y-p-t-o-c-o-c-c-u-s- -u-r-e-a-s-e- -p-o-s-i-t-i-f- -t-e-t-a-p-i- -b-e-r-k-a-p-s-u-l- -d-a-n- -t-i-d-a-k- -m-e-m-b-e-n-t-u-k- -h-i-f-a-.- -M-a-l-a-s-s-e-z-i-a- -m-e-m-e-r-l-u-k-a-n- -l-i-p-i-d- -u-n-t-u-k- -t-u-m-b-u-h-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-T-r-i-c-h-o-s-p-o-r-o-n- -s-p-p-.- -(-p-i-e-d-r-a- -p-u-t-i-h-)-",
+            "is_correct": true
+          },
+          {
+            "option_label": "B",
+            "option_text": "-P-i-e-d-r-a-i-a- -h-o-r-t-a-e-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-C-a-n-d-i-d-a- -a-l-b-i-c-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-C-r-y-p-t-o-c-o-c-c-u-s- -n-e-o-f-o-r-m-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-a-l-a-s-s-e-z-i-a- -f-u-r-f-u-r-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-a-s-i-e-n- -d-e-n-g-a-n- -o-n-i-k-o-m-i-k-o-s-i-s- -s-u-b-u-n-g-u-a-l- -d-i-s-t-a-l---l-a-t-e-r-a-l- -(-D-L-S-O-)- -p-a-d-a- -k-u-k-u- -i-b-u- -j-a-r-i- -k-a-k-i- -a-k-a-n- -d-i-a-m-b-i-l- -s-a-m-p-e-l-n-y-a-.- -C-a-r-a- -p-e-n-g-a-m-b-i-l-a-n- -s-a-m-p-e-l- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -E- -M-e-m-b-e-r-s-i-h-k-a-n- -k-u-k-u- -d-e-n-g-a-n- -a-l-k-o-h-o-l- -7-0-%-,- -m-e-m-b-u-a-n-g- -b-a-g-i-a-n- -d-i-s-t-a-l-,- -l-a-l-u- -m-e-n-g-a-m-b-i-l- -d-e-b-r-i-s- -s-u-b-u-n-g-u-a-l- -d-a-r-i- -b-a-g-i-a-n- -p-a-l-i-n-g- -p-r-o-k-s-i-m-a-l- -l-e-s-i- -(-b-a-t-a-s- -d-e-n-g-a-n- -k-u-k-u- -s-e-h-a-t-)- -P-e-m-b-a-h-a-s-a-n- -P-a-d-a- -D-L-S-O-,- -j-a-m-u-r- -y-a-n-g- -m-a-s-i-h- -h-i-d-u-p- -p-a-l-i-n-g- -b-a-n-y-a-k- -t-e-r-d-a-p-a-t- -d-i- -b-a-g-i-a-n- -p-r-o-k-s-i-m-a-l- -l-e-s-i- -(-b-a-t-a-s- -d-e-n-g-a-n- -k-u-k-u- -s-e-h-a-t-)-,- -s-e-d-a-n-g-k-a-n- -u-j-u-n-g- -d-i-s-t-a-l- -b-a-n-y-a-k- -m-e-n-g-a-n-d-u-n-g- -k-o-n-t-a-m-i-n-a-n- -d-a-n- -j-a-m-u-r- -m-a-t-i-.- -P-e-m-b-e-r-s-i-h-a-n- -d-e-n-g-a-n- -a-l-k-o-h-o-l- -7-0-%- -m-e-n-g-u-r-a-n-g-i- -k-o-n-t-a-m-i-n-a-s-i-.- -S-a-m-p-e-l- -d-i-k-u-m-p-u-l-k-a-n- -d-a-l-a-m- -j-u-m-l-a-h- -c-u-k-u-p- -u-n-t-u-k- -K-O-H- -d-a-n- -k-u-l-t-u-r-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-m-o-t-o-n-g- -u-j-u-n-g- -b-e-b-a-s- -k-u-k-u- -s-a-j-a-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-M-e-n-g-u-s-a-p- -p-e-r-m-u-k-a-a-n- -k-u-k-u- -d-e-n-g-a-n- -s-w-a-b- -k-a-p-a-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-n-g-a-m-b-i-l- -s-a-m-p-e-l- -d-a-r-i- -k-u-k-u- -s-e-h-a-t- -d-i- -s-e-b-e-l-a-h-n-y-a- -s-e-b-a-g-a-i- -p-e-m-b-a-n-d-i-n-g-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-n-c-a-b-u-t- -s-e-l-u-r-u-h- -l-e-m-p-e-n-g- -k-u-k-u-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-m-b-e-r-s-i-h-k-a-n- -k-u-k-u- -d-e-n-g-a-n- -a-l-k-o-h-o-l- -7-0-%-,- -m-e-m-b-u-a-n-g- -b-a-g-i-a-n- -d-i-s-t-a-l-,- -l-a-l-u- -m-e-n-g-a-m-b-i-l- -d-e-b-r-i-s- -s-u-b-u-n-g-u-a-l- -d-a-r-i- -b-a-g-i-a-n- -p-a-l-i-n-g- -p-r-o-k-s-i-m-a-l- -l-e-s-i- -(-b-a-t-a-s- -d-e-n-g-a-n- -k-u-k-u- -s-e-h-a-t-)-",
+            "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "-S-e-r-p-i-h-a-n- -k-u-k-u- -t-e-b-a-l- -y-a-n-g- -d-i-p-e-r-i-k-s-a- -d-e-n-g-a-n- -K-O-H- -1-0-%- -m-a-s-i-h- -t-a-m-p-a-k- -k-e-r-u-h- -d-a-n- -e-l-e-m-e-n- -j-a-m-u-r- -t-i-d-a-k- -d-a-p-a-t- -d-i-n-i-l-a-i- -s-e-t-e-l-a-h- -2-0- -m-e-n-i-t-.- -L-a-n-g-k-a-h- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-g-a-r- -s-e-d-i-a-a-n- -d-a-p-a-t- -d-i-b-a-c-a- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -B- -M-e-n-g-g-u-n-a-k-a-n- -K-O-H- -2-0---4-0-%- -(-a-t-a-u- -K-O-H- -d-e-n-g-a-n- -D-M-S-O-)-,- -m-e-n-g-h-a-n-g-a-t-k-a-n- -p-e-r-l-a-h-a-n- -t-a-n-p-a- -m-e-n-d-i-d-i-h-,- -d-a-n- -m-e-n-d-i-a-m-k-a-n- -l-e-b-i-h- -l-a-m-a- -P-e-m-b-a-h-a-s-a-n- -K-e-r-a-t-i-n- -k-u-k-u- -s-a-n-g-a-t- -p-a-d-a-t- -s-e-h-i-n-g-g-a- -m-e-m-e-r-l-u-k-a-n- -K-O-H- -k-o-n-s-e-n-t-r-a-s-i- -l-e-b-i-h- -t-i-n-g-g-i- -(-2-0---4-0-%-)-,- -w-a-k-t-u- -l-e-b-i-h- -l-a-m-a-,- -a-t-a-u- -p-e-n-a-m-b-a-h-a-n- -D-M-S-O- -u-n-t-u-k- -m-e-m-p-e-r-c-e-p-a-t- -p-e-n-j-e-r-n-i-h-a-n-,- -d-e-n-g-a-n- -p-e-m-a-n-a-s-a-n- -l-e-m-b-u-t-.- -P-e-n-d-i-d-i-h-a-n- -m-e-n-y-e-b-a-b-k-a-n- -t-e-r-b-e-n-t-u-k-n-y-a- -k-r-i-s-t-a-l- -K-O-H- -d-a-n- -m-e-r-u-s-a-k- -s-t-r-u-k-t-u-r- -j-a-m-u-r-.- -S-e-d-i-a-a-n- -y-a-n-g- -b-e-l-u-m- -j-e-r-n-i-h- -t-i-d-a-k- -l-a-y-a-k- -b-a-c-a-,- -s-e-h-i-n-g-g-a- -t-i-d-a-k- -b-o-l-e-h- -d-i-l-a-p-o-r-k-a-n- -n-e-g-a-t-i-f-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-n-g-g-a-n-t-i- -p-e-m-e-r-i-k-s-a-a-n- -d-e-n-g-a-n- -p-e-w-a-r-n-a-a-n- -G-r-a-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-M-e-n-g-g-u-n-a-k-a-n- -K-O-H- -2-0---4-0-%- -(-a-t-a-u- -K-O-H- -d-e-n-g-a-n- -D-M-S-O-)-,- -m-e-n-g-h-a-n-g-a-t-k-a-n- -p-e-r-l-a-h-a-n- -t-a-n-p-a- -m-e-n-d-i-d-i-h-,- -d-a-n- -m-e-n-d-i-a-m-k-a-n- -l-e-b-i-h- -l-a-m-a-",
+            "is_correct": true
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-m-a-n-a-s-k-a-n- -s-e-d-i-a-a-n- -s-a-m-p-a-i- -m-e-n-d-i-d-i-h- -a-g-a-r- -k-e-r-a-t-i-n- -c-e-p-a-t- -l-a-r-u-t-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-n-a-m-b-a-h-k-a-n- -a-l-k-o-h-o-l- -9-6-%- -p-a-d-a- -s-e-d-i-a-a-n-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-l-a-p-o-r-k-a-n- -h-a-s-i-l- -n-e-g-a-t-i-f-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-S-e-o-r-a-n-g- -i-b-u- -r-u-m-a-h- -t-a-n-g-g-a- -m-e-n-g-a-l-a-m-i- -k-e-r-u-s-a-k-a-n- -k-u-k-u- -j-a-r-i- -t-a-n-g-a-n- -d-i-s-e-r-t-a-i- -p-a-r-o-n-i-k-i-a- -(-l-i-p-a-t- -k-u-k-u- -b-e-n-g-k-a-k- -k-e-m-e-r-a-h-a-n-)-.- -K-O-H- -m-e-n-u-n-j-u-k-k-a-n- -s-e-l- -r-a-g-i- -b-e-r-t-u-n-a-s- -d-a-n- -p-s-e-u-d-o-h-i-f-a-.- -K-o-l-o-n-i- -k-r-e-m- -h-a-l-u-s- -p-a-d-a- -S-D-A- -m-e-n-g-h-a-s-i-l-k-a-n- -t-a-b-u-n-g- -k-e-c-a-m-b-a-h- -s-e-t-e-l-a-h- -2- -j-a-m- -i-n-k-u-b-a-s-i- -d-a-l-a-m- -s-e-r-u-m- -p-a-d-a- -3-7-°-C- -d-a-n- -m-e-m-b-e-n-t-u-k- -k-l-a-m-i-d-o-s-p-o-r-a- -p-a-d-a- -a-g-a-r- -C-o-r-n- -M-e-a-l---T-w-e-e-n- -8-0-.- -I-d-e-n-t-i-f-i-k-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -D- -C-a-n-d-i-d-a- -a-l-b-i-c-a-n-s- -P-e-m-b-a-h-a-s-a-n- -O-n-i-k-o-m-i-k-o-s-i-s- -d-e-n-g-a-n- -p-a-r-o-n-i-k-i-a- -p-a-d-a- -t-a-n-g-a-n- -y-a-n-g- -s-e-r-i-n-g- -t-e-r-p-a-p-a-r- -a-i-r- -k-h-a-s- -d-i-s-e-b-a-b-k-a-n- -C-a-n-d-i-d-a-.- -T-a-b-u-n-g- -k-e-c-a-m-b-a-h- -p-o-s-i-t-i-f- -d-a-l-a-m- -≤-3- -j-a-m- -d-a-n- -k-l-a-m-i-d-o-s-p-o-r-a- -t-e-r-m-i-n-a-l- -p-a-d-a- -C-o-r-n- -M-e-a-l---T-w-e-e-n- -8-0- -m-e-n-g-i-d-e-n-t-i-f-i-k-a-s-i- -C-.- -a-l-b-i-c-a-n-s-.- -C-.- -t-r-o-p-i-c-a-l-i-s- -t-i-d-a-k- -m-e-m-b-e-n-t-u-k- -t-a-b-u-n-g- -k-e-c-a-m-b-a-h- -s-e-j-a-t-i- -d-a-n- -u-m-u-m-n-y-a- -t-i-d-a-k- -m-e-m-b-e-n-t-u-k- -k-l-a-m-i-d-o-s-p-o-r-a-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-T-r-i-c-h-o-p-h-y-t-o-n- -r-u-b-r-u-m-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-C-a-n-d-i-d-a- -t-r-o-p-i-c-a-l-i-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-a-l-a-s-s-e-z-i-a- -f-u-r-f-u-r-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-C-a-n-d-i-d-a- -a-l-b-i-c-a-n-s-",
+            "is_correct": true
+          },
+          {
+            "option_label": "E",
+            "option_text": "-T-r-i-c-h-o-s-p-o-r-o-n- -a-s-a-h-i-i-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-K-O-H- -k-e-r-o-k-a-n- -k-u-k-u- -j-e-m-p-o-l- -k-a-k-i- -m-e-n-u-n-j-u-k-k-a-n- -h-i-f-a- -b-e-r-s-e-p-t-a-.- -K-u-l-t-u-r- -p-a-d-a- -S-D-A- -d-e-n-g-a-n- -s-i-k-l-o-h-e-k-s-i-m-i-d- -n-e-g-a-t-i-f-,- -s-e-d-a-n-g-k-a-n- -p-a-d-a- -S-D-A- -t-a-n-p-a- -s-i-k-l-o-h-e-k-s-i-m-i-d- -t-u-m-b-u-h- -A-s-p-e-r-g-i-l-l-u-s- -s-p-.- -p-a-d-a- -s-a-t-u- -k-a-l-i- -p-e-m-e-r-i-k-s-a-a-n-.- -T-i-n-d-a-k- -l-a-n-j-u-t- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -A- -M-e-l-a-k-u-k-a-n- -p-e-n-g-a-m-b-i-l-a-n- -s-a-m-p-e-l- -u-l-a-n-g-,- -k-a-r-e-n-a- -k-a-p-a-n-g- -n-o-n---d-e-r-m-a-t-o-f-i-t- -b-a-r-u- -d-i-a-n-g-g-a-p- -p-e-n-y-e-b-a-b- -b-i-l-a- -d-i-t-e-m-u-k-a-n- -b-e-r-u-l-a-n-g- -(-≥-2- -k-a-l-i-)- -d-e-n-g-a-n- -K-O-H- -p-o-s-i-t-i-f- -d-a-n- -t-a-n-p-a- -d-e-r-m-a-t-o-f-i-t- -P-e-m-b-a-h-a-s-a-n- -K-a-p-a-n-g- -n-o-n---d-e-r-m-a-t-o-f-i-t- -s-e-p-e-r-t-i- -A-s-p-e-r-g-i-l-l-u-s-,- -S-c-o-p-u-l-a-r-i-o-p-s-i-s-,- -d-a-n- -F-u-s-a-r-i-u-m- -s-e-r-i-n-g- -m-e-r-u-p-a-k-a-n- -k-o-n-t-a-m-i-n-a-n-.- -K-a-p-a-n-g- -t-e-r-s-e-b-u-t- -b-a-r-u- -d-i-a-n-g-g-a-p- -s-e-b-a-g-a-i- -p-e-n-y-e-b-a-b- -b-i-l-a- -K-O-H- -p-o-s-i-t-i-f-,- -d-e-r-m-a-t-o-f-i-t- -t-i-d-a-k- -t-u-m-b-u-h-,- -d-a-n- -k-a-p-a-n-g- -y-a-n-g- -s-a-m-a- -t-e-r-i-s-o-l-a-s-i- -b-e-r-u-l-a-n-g- -(-m-i-n-i-m-a-l- -2- -k-a-l-i-)- -d-a-r-i- -s-a-m-p-e-l- -t-e-r-p-i-s-a-h-.- -M-e-n-y-a-t-a-k-a-n- -p-a-s-i-e-n- -t-i-d-a-k- -s-a-k-i-t- -j-u-g-a- -k-e-l-i-r-u- -k-a-r-e-n-a- -K-O-H- -p-o-s-i-t-i-f-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-M-e-l-a-k-u-k-a-n- -p-e-n-g-a-m-b-i-l-a-n- -s-a-m-p-e-l- -u-l-a-n-g-,- -k-a-r-e-n-a- -k-a-p-a-n-g- -n-o-n---d-e-r-m-a-t-o-f-i-t- -b-a-r-u- -d-i-a-n-g-g-a-p- -p-e-n-y-e-b-a-b- -b-i-l-a- -d-i-t-e-m-u-k-a-n- -b-e-r-u-l-a-n-g- -(-≥-2- -k-a-l-i-)- -d-e-n-g-a-n- -K-O-H- -p-o-s-i-t-i-f- -d-a-n- -t-a-n-p-a- -d-e-r-m-a-t-o-f-i-t-",
+            "is_correct": true
+          },
+          {
+            "option_label": "B",
+            "option_text": "-L-a-n-g-s-u-n-g- -m-e-l-a-p-o-r-k-a-n- -A-s-p-e-r-g-i-l-l-u-s- -s-e-b-a-g-a-i- -p-e-n-y-e-b-a-b- -o-n-i-k-o-m-i-k-o-s-i-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-e-l-a-p-o-r-k-a-n- -k-o-n-t-a-m-i-n-a-s-i- -d-a-n- -m-e-n-y-a-t-a-k-a-n- -p-a-s-i-e-n- -t-i-d-a-k- -m-e-n-d-e-r-i-t-a- -o-n-i-k-o-m-i-k-o-s-i-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-M-e-n-g-u-l-a-n-g- -k-u-l-t-u-r- -h-a-n-y-a- -p-a-d-a- -D-T-M-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-M-e-m-e-r-i-k-s-a- -k-u-k-u- -d-e-n-g-a-n- -l-a-m-p-u- -W-o-o-d-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-P-a-s-i-e-n- -m-e-n-g-e-l-u-h-k-a-n- -g-a-t-a-l- -d-a-n- -r-a-s-a- -p-e-n-u-h- -d-i- -t-e-l-i-n-g-a- -s-e-t-e-l-a-h- -s-e-r-i-n-g- -b-e-r-e-n-a-n-g-.- -P-a-d-a- -l-i-a-n-g- -t-e-l-i-n-g-a- -t-a-m-p-a-k- -d-e-b-r-i-s- -s-e-p-e-r-t-i- -k-e-r-t-a-s- -k-o-r-a-n- -b-a-s-a-h- -d-e-n-g-a-n- -b-i-n-t-i-k---b-i-n-t-i-k- -h-i-t-a-m-.- -M-i-k-r-o-s-k-o-p-i-s- -L-P-C-B-:- -h-i-f-a- -h-i-a-l-i-n- -b-e-r-s-e-p-t-a-,- -k-o-n-i-d-i-o-f-o-r- -b-e-r-u-j-u-n-g- -v-e-s-i-k-e-l- -b-u-l-a-t- -y-a-n-g- -s-e-l-u-r-u-h- -p-e-r-m-u-k-a-a-n-n-y-a- -d-i-t-u-t-u-p-i- -f-i-a-l-i-d- -d-u-a- -l-a-p-i-s- -(-b-i-s-e-r-i-a-t-)-,- -d-e-n-g-a-n- -k-o-n-i-d-i-a- -c-o-k-l-a-t---h-i-t-a-m- -k-a-s-a-r-.- -P-e-n-y-e-b-a-b- -y-a-n-g- -p-a-l-i-n-g- -m-u-n-g-k-i-n- -a-d-a-l-a-h- -…-",
+        "difficulty": "medium",
+        "explanation": "-M-e-n-e-n-g-a-h- -J-A-W-A-B-A-N- -E- -A-s-p-e-r-g-i-l-l-u-s- -n-i-g-e-r- -P-e-m-b-a-h-a-s-a-n- -A-.- -n-i-g-e-r- -a-d-a-l-a-h- -p-e-n-y-e-b-a-b- -t-e-r-s-e-r-i-n-g- -o-t-o-m-i-k-o-s-i-s- -d-e-n-g-a-n- -g-a-m-b-a-r-a-n- -d-e-b-r-i-s- -s-e-p-e-r-t-i- -k-e-r-t-a-s- -k-o-r-a-n- -b-a-s-a-h- -b-e-r-b-i-n-t-i-k- -h-i-t-a-m-.- -C-i-r-i- -m-i-k-r-o-s-k-o-p-i-s-n-y-a- -a-d-a-l-a-h- -v-e-s-i-k-e-l- -b-u-l-a-t- -b-e-s-a-r- -y-a-n-g- -s-e-l-u-r-u-h-n-y-a- -d-i-t-u-t-u-p-i- -f-i-a-l-i-d- -b-i-s-e-r-i-a-t- -d-e-n-g-a-n- -k-o-n-i-d-i-a- -h-i-t-a-m- -k-a-s-a-r-.- -A-.- -f-u-m-i-g-a-t-u-s- -b-e-r-s-i-f-a-t- -u-n-i-s-e-r-i-a-t- -d-e-n-g-a-n- -k-o-n-i-d-i-a- -h-i-j-a-u-,- -M-u-c-o-r- -m-e-m-i-l-i-k-i- -h-i-f-a- -t-i-d-a-k- -b-e-r-s-e-p-t-a- -d-e-n-g-a-n- -s-p-o-r-a-n-g-i-u-m-,- -d-a-n- -P-e-n-i-c-i-l-l-i-u-m- -t-i-d-a-k- -m-e-m-i-l-i-k-i- -v-e-s-i-k-e-l-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-C-a-n-d-i-d-a- -a-l-b-i-c-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-M-u-c-o-r- -s-p-.-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-P-e-n-i-c-i-l-l-i-u-m- -s-p-.-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -f-u-m-i-g-a-t-u-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -n-i-g-e-r-",
+            "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "-I-s-o-l-a-t- -d-a-r-i- -k-a-s-u-s- -o-t-o-m-i-k-o-s-i-s- -m-e-m-b-e-n-t-u-k- -k-o-l-o-n-i- -b-e-l-u-d-r-u- -b-e-r-w-a-r-n-a- -h-i-j-a-u- -k-e-b-i-r-u-a-n- -h-i-n-g-g-a- -h-i-j-a-u- -k-e-a-b-u-a-n- -d-a-n- -t-u-m-b-u-h- -b-a-i-k- -p-a-d-a- -s-u-h-u- -4-5-°-C-.- -M-i-k-r-o-s-k-o-p-i-s-:- -v-e-s-i-k-e-l- -b-e-r-b-e-n-t-u-k- -g-a-d-a-,- -f-i-a-l-i-d- -u-n-i-s-e-r-i-a-t- -y-a-n-g- -h-a-n-y-a- -m-e-n-u-t-u-p-i- -d-u-a- -p-e-r-t-i-g-a- -b-a-g-i-a-n- -a-t-a-s- -v-e-s-i-k-e-l-,- -d-a-n- -k-o-n-i-d-i-a- -t-e-r-s-u-s-u-n- -k-o-l-u-m-n-a-r- -s-e-j-a-j-a-r- -s-u-m-b-u- -k-o-n-i-d-i-o-f-o-r-.- -I-d-e-n-t-i-f-i-k-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -C- -A-s-p-e-r-g-i-l-l-u-s- -f-u-m-i-g-a-t-u-s- -P-e-m-b-a-h-a-s-a-n- -A-.- -f-u-m-i-g-a-t-u-s- -b-e-r-s-i-f-a-t- -t-e-r-m-o-t-o-l-e-r-a-n- -(-t-u-m-b-u-h- -p-a-d-a- -≥-4-5-°-C-)-,- -d-e-n-g-a-n- -k-o-l-o-n-i- -h-i-j-a-u- -k-e-b-i-r-u-a-n-,- -v-e-s-i-k-e-l- -g-a-d-a-,- -f-i-a-l-i-d- -u-n-i-s-e-r-i-a-t- -p-a-d-a- -2-/-3- -a-t-a-s- -v-e-s-i-k-e-l-,- -d-a-n- -k-e-p-a-l-a- -k-o-n-i-d-i-a- -k-o-l-u-m-n-a-r-.- -A-.- -t-e-r-r-e-u-s- -m-e-m-i-l-i-k-i- -k-o-l-o-n-i- -c-o-k-l-a-t- -k-a-y-u- -m-a-n-i-s- -d-e-n-g-a-n- -f-i-a-l-i-d- -b-i-s-e-r-i-a-t-.- -P-e-n-i-c-i-l-l-i-u-m- -m-e-m-b-e-n-t-u-k- -p-e-n-i-s-i-l-u-s- -(-s-e-p-e-r-t-i- -s-a-p-u-)- -t-a-n-p-a- -v-e-s-i-k-e-l-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -n-i-g-e-r-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -f-l-a-v-u-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -f-u-m-i-g-a-t-u-s-",
+            "is_correct": true
+          },
+          {
+            "option_label": "D",
+            "option_text": "-P-e-n-i-c-i-l-l-i-u-m- -s-p-.-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -t-e-r-r-e-u-s-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-I-s-o-l-a-t- -k-h-a-m-i-r- -d-a-r-i- -d-e-b-r-i-s- -t-e-l-i-n-g-a- -d-i-u-j-i- -t-a-b-u-n-g- -k-e-c-a-m-b-a-h- -d-a-l-a-m- -s-e-r-u-m- -m-a-n-u-s-i-a- -p-a-d-a- -3-7-°-C-.- -S-e-t-e-l-a-h- -2-,-5- -j-a-m- -t-e-r-l-i-h-a-t- -t-o-n-j-o-l-a-n- -d-a-r-i- -s-e-l- -i-n-d-u-k- -y-a-n-g- -m-e-n-g-a-l-a-m-i- -p-e-n-y-e-m-p-i-t-a-n- -(-k-o-n-s-t-r-i-k-s-i-)- -p-a-d-a- -p-a-n-g-k-a-l-n-y-a-.- -I-n-t-e-r-p-r-e-t-a-s-i- -y-a-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -B- -B-u-k-a-n- -t-a-b-u-n-g- -k-e-c-a-m-b-a-h- -s-e-j-a-t-i- -(-p-s-e-u-d-o-h-i-f-a-)- -s-e-h-i-n-g-g-a- -d-i-l-a-p-o-r-k-a-n- -n-e-g-a-t-i-f-;- -d-a-p-a-t- -d-i-t-e-m-u-k-a-n- -p-a-d-a- -C-.- -t-r-o-p-i-c-a-l-i-s- -P-e-m-b-a-h-a-s-a-n- -T-a-b-u-n-g- -k-e-c-a-m-b-a-h- -s-e-j-a-t-i- -t-i-d-a-k- -m-e-m-i-l-i-k-i- -k-o-n-s-t-r-i-k-s-i- -p-a-d-a- -p-a-n-g-k-a-l-n-y-a- -d-a-n- -t-e-r-b-e-n-t-u-k- -d-a-l-a-m- -≤-3- -j-a-m-,- -k-h-a-s- -C-.- -a-l-b-i-c-a-n-s- -(-j-u-g-a- -C-.- -d-u-b-l-i-n-i-e-n-s-i-s-)-.- -T-o-n-j-o-l-a-n- -d-e-n-g-a-n- -k-o-n-s-t-r-i-k-s-i- -p-a-d-a- -p-a-n-g-k-a-l- -a-d-a-l-a-h- -p-s-e-u-d-o-h-i-f-a-,- -s-e-h-i-n-g-g-a- -d-i-l-a-p-o-r-k-a-n- -n-e-g-a-t-i-f-,- -m-i-s-a-l-n-y-a- -p-a-d-a- -C-.- -t-r-o-p-i-c-a-l-i-s-.- -P-e-m-b-a-c-a-a-n- -l-e-b-i-h- -d-a-r-i- -3- -j-a-m- -m-e-n-i-n-g-k-a-t-k-a-n- -r-i-s-i-k-o- -p-o-s-i-t-i-f- -p-a-l-s-u-.- -K-o-n-t-r-o-l- -y-a-n-g- -d-i-g-u-n-a-k-a-n- -a-d-a-l-a-h- -C-.- -a-l-b-i-c-a-n-s- -(-p-o-s-i-t-i-f-)- -d-a-n- -C-.- -t-r-o-p-i-c-a-l-i-s- -(-n-e-g-a-t-i-f-)-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-T-a-b-u-n-g- -k-e-c-a-m-b-a-h- -p-o-s-i-t-i-f-;- -C-a-n-d-i-d-a- -a-l-b-i-c-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-B-u-k-a-n- -t-a-b-u-n-g- -k-e-c-a-m-b-a-h- -s-e-j-a-t-i- -(-p-s-e-u-d-o-h-i-f-a-)- -s-e-h-i-n-g-g-a- -d-i-l-a-p-o-r-k-a-n- -n-e-g-a-t-i-f-;- -d-a-p-a-t- -d-i-t-e-m-u-k-a-n- -p-a-d-a- -C-.- -t-r-o-p-i-c-a-l-i-s-",
+            "is_correct": true
+          },
+          {
+            "option_label": "C",
+            "option_text": "-T-a-b-u-n-g- -k-e-c-a-m-b-a-h- -p-o-s-i-t-i-f-;- -C-r-y-p-t-o-c-o-c-c-u-s- -n-e-o-f-o-r-m-a-n-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-T-a-b-u-n-g- -k-e-c-a-m-b-a-h- -p-o-s-i-t-i-f-;- -T-r-i-c-h-o-s-p-o-r-o-n- -s-p-.-",
+            "is_correct": false
+          },
+          {
+            "option_label": "E",
+            "option_text": "-U-j-i- -t-i-d-a-k- -v-a-l-i-d- -k-a-r-e-n-a- -m-e-n-g-g-u-n-a-k-a-n- -s-e-r-u-m- -m-a-n-u-s-i-a-",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "-I-s-o-l-a-t- -d-a-r-i- -d-e-b-r-i-s- -l-i-a-n-g- -t-e-l-i-n-g-a- -m-e-m-b-e-n-t-u-k- -k-o-l-o-n-i- -b-e-r-w-a-r-n-a- -k-u-n-i-n-g- -k-e-h-i-j-a-u-a-n- -d-e-n-g-a-n- -t-e-p-i- -p-u-t-i-h-.- -M-i-k-r-o-s-k-o-p-i-s-:- -k-o-n-i-d-i-o-f-o-r- -b-e-r-d-i-n-d-i-n-g- -k-a-s-a-r-,- -v-e-s-i-k-e-l- -b-u-l-a-t-,- -s-e-r-t-a- -f-i-a-l-i-d- -u-n-i-s-e-r-i-a-t- -d-a-n- -b-i-s-e-r-i-a-t- -y-a-n-g- -m-e-n-u-t-u-p-i- -s-e-l-u-r-u-h- -p-e-r-m-u-k-a-a-n- -v-e-s-i-k-e-l- -d-e-n-g-a-n- -s-u-s-u-n-a-n- -m-e-n-j-a-r-i- -(-r-a-d-i-a-t-e-)-.- -I-d-e-n-t-i-f-i-k-a-s-i- -y-a-n-g- -p-a-l-i-n-g- -t-e-p-a-t- -a-d-a-l-a-h- -…-",
+        "difficulty": "hard",
+        "explanation": "-S-u-l-i-t- -J-A-W-A-B-A-N- -D- -A-s-p-e-r-g-i-l-l-u-s- -f-l-a-v-u-s- -P-e-m-b-a-h-a-s-a-n- -A-.- -f-l-a-v-u-s- -m-e-m-i-l-i-k-i- -k-o-l-o-n-i- -k-u-n-i-n-g- -k-e-h-i-j-a-u-a-n-,- -k-o-n-i-d-i-o-f-o-r- -b-e-r-d-i-n-d-i-n-g- -k-a-s-a-r-,- -v-e-s-i-k-e-l- -b-u-l-a-t-,- -d-a-n- -f-i-a-l-i-d- -u-n-i--- -m-a-u-p-u-n- -b-i-s-e-r-i-a-t- -y-a-n-g- -m-e-n-u-t-u-p-i- -s-e-l-u-r-u-h- -v-e-s-i-k-e-l- -s-e-c-a-r-a- -r-a-d-i-a-t-e-.- -A-.- -n-i-g-e-r- -b-e-r-k-o-l-o-n-i- -h-i-t-a-m-,- -A-.- -f-u-m-i-g-a-t-u-s- -h-i-j-a-u- -k-e-b-i-r-u-a-n- -d-e-n-g-a-n- -f-i-a-l-i-d- -u-n-i-s-e-r-i-a-t- -p-a-d-a- -2-/-3- -a-t-a-s- -v-e-s-i-k-e-l-,- -s-e-d-a-n-g-k-a-n- -M-u-c-o-r- -d-a-n- -R-h-i-z-o-p-u-s- -m-e-m-i-l-i-k-i- -h-i-f-a- -t-i-d-a-k- -b-e-r-s-e-p-t-a- -d-e-n-g-a-n- -s-p-o-r-a-n-g-i-u-m-.-",
+        "options": [
+          {
+            "option_label": "A",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -n-i-g-e-r-",
+            "is_correct": false
+          },
+          {
+            "option_label": "B",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -f-u-m-i-g-a-t-u-s-",
+            "is_correct": false
+          },
+          {
+            "option_label": "C",
+            "option_text": "-M-u-c-o-r- -s-p-.-",
+            "is_correct": false
+          },
+          {
+            "option_label": "D",
+            "option_text": "-A-s-p-e-r-g-i-l-l-u-s- -f-l-a-v-u-s-",
+            "is_correct": true
+          },
+          {
+            "option_label": "E",
+            "option_text": "-R-h-i-z-o-p-u-s- -s-p-.-",
+            "is_correct": false
+          }
+        ]
+      }
     ]
   }
 ];
@@ -4470,11 +5434,15 @@ export async function seed(knex: Knex): Promise<void> {
   for (const setData of questionSetsData) {
     const catId = catMap.get(setData.category_slug) || allCategories[0].id;
 
-    
-    let setRecord = await knex('question_sets').where('title', setData.title).first();
+    let setRecord = await knex('question_sets').where('id', setData.id).first();
+    if (!setRecord) {
+      setRecord = await knex('question_sets').where('title', setData.title).first();
+    }
+
     if (!setRecord) {
       const [inserted] = await knex('question_sets')
         .insert({
+          id: setData.id,
           category_id: catId,
           title: setData.title,
           description: setData.description,
@@ -4482,21 +5450,9 @@ export async function seed(knex: Knex): Promise<void> {
         })
         .returning('*');
       setRecord = inserted;
-    } else {
-      
-      await knex('question_sets')
-        .where('id', setRecord.id)
-        .update({
-          category_id: catId,
-          description: setData.description,
-          status: 'published',
-        });
     }
 
-    console.log(`Populating Question Set: "${setData.title}" (${setData.questions.length} questions)...`);
-
     for (const q of setData.questions) {
-      
       let existingQ = await knex('questions')
         .where('question_set_id', setRecord.id)
         .andWhere('question_text', q.question_text)
@@ -4516,7 +5472,6 @@ export async function seed(knex: Knex): Promise<void> {
           .returning('*');
         qId = insertedQ.id;
 
-        
         const optionsToInsert = q.options.map((opt: any, index: number) => ({
           question_id: qId,
           option_label: opt.option_label,
@@ -4536,21 +5491,16 @@ export async function seed(knex: Knex): Promise<void> {
             status: 'published',
           });
 
-        
-        const existingOpts = await knex('question_options').where('question_id', qId);
-        if (existingOpts.length === 0) {
-          const optionsToInsert = q.options.map((opt: any, index: number) => ({
-            question_id: qId,
-            option_label: opt.option_label,
-            option_text: opt.option_text,
-            is_correct: opt.is_correct,
-            sort_order: index + 1,
-          }));
-          await knex('question_options').insert(optionsToInsert);
-        }
+        await knex('question_options').where('question_id', qId).del();
+        const optionsToInsert = q.options.map((opt: any, index: number) => ({
+          question_id: qId,
+          option_label: opt.option_label,
+          option_text: opt.option_text,
+          is_correct: opt.is_correct,
+          sort_order: index + 1,
+        }));
+        await knex('question_options').insert(optionsToInsert);
       }
     }
   }
-
-  console.log('✓ Successfully seeded all TLM Question Banks from folder!');
 }
