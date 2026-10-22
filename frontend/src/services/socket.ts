@@ -4,7 +4,8 @@ let socketInstance: Socket | null = null;
 
 export function getSocket(): Socket {
   if (!socketInstance) {
-    socketInstance = io('http://localhost:5000', {
+    const BACKEND_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/+$/, '');
+    socketInstance = io(BACKEND_URL, {
       autoConnect: true,
       transports: ['websocket', 'polling'],
     });

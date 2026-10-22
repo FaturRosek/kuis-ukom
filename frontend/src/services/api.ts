@@ -13,7 +13,8 @@ import {
   PracticeHistoryItem,
 } from '../types';
 
-const API_BASE = 'http://localhost:5000/api';
+const BACKEND_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/+$/, '');
+const API_BASE = `${BACKEND_URL}/api`;
 
 async function request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const url = `${API_BASE}${endpoint}`;
@@ -33,7 +34,6 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
 }
 
 export const api = {
-  // Categories
   async getCategories(): Promise<Category[]> {
     return request<Category[]>('/categories');
   },
@@ -45,7 +45,6 @@ export const api = {
     });
   },
 
-  // Question Sets
   async getQuestionSets(categoryId?: string, status?: string): Promise<QuestionSet[]> {
     const params = new URLSearchParams();
     if (categoryId) params.append('categoryId', categoryId);
@@ -79,7 +78,6 @@ export const api = {
     await request(`/question-sets/${id}`, { method: 'DELETE' });
   },
 
-  // Questions
   async getQuestions(filters: { questionSetId?: string; categoryId?: string; status?: string } = {}): Promise<Question[]> {
     const params = new URLSearchParams();
     if (filters.questionSetId) params.append('questionSetId', filters.questionSetId);
@@ -126,7 +124,6 @@ export const api = {
     await request(`/questions/${id}`, { method: 'DELETE' });
   },
 
-  // Import
   async uploadDocument(file: File): Promise<{
     fileName: string;
     totalQuestions: number;
@@ -163,7 +160,6 @@ export const api = {
     });
   },
 
-  // Solo gameplay
   async startSoloSession(
     questionSetId: string,
     durationPerQuestion: number = 30,
@@ -210,7 +206,6 @@ export const api = {
     return request<PracticeHistoryItem[]>('/solo/history');
   },
 
-  // Multiplayer
   async createMultiplayerRoom(
     hostName: string,
     questionSetId: string,
@@ -243,7 +238,6 @@ export const api = {
     });
   },
 
-  // AI Solver
   async getAIServerStatus(): Promise<{ hasServerKey: boolean; supportedModels: string[]; heuristicEngineReady: boolean }> {
     return request('/ai/status');
   },

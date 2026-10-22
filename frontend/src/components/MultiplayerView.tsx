@@ -390,7 +390,6 @@ export const MultiplayerView: React.FC<MultiplayerViewProps> = ({ onHome }) => {
     );
   }
 
-  // 2. LOBBY VIEW
   if (mode === 'lobby' && currentRoom) {
     const isHost = isCurrentHost();
     const self = currentRoom.participants?.find((p) => p.player_name === currentPlayerName());
@@ -511,7 +510,6 @@ export const MultiplayerView: React.FC<MultiplayerViewProps> = ({ onHome }) => {
     );
   }
 
-  // 3. PLAYING VIEW
   if (mode === 'playing' && currentQ) {
     const isLocked = selectedOptionId !== null || roundEndedInfo !== null;
 
@@ -627,7 +625,6 @@ export const MultiplayerView: React.FC<MultiplayerViewProps> = ({ onHome }) => {
     );
   }
 
-  // 4. GAME OVER VIEW
   if (mode === 'game_over') {
     const winner = finalLeaderboard[0];
 

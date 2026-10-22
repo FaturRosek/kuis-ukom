@@ -82,7 +82,6 @@ export const SoloGameView: React.FC<SoloGameViewProps> = ({
 
   const handleNextQuestion = async () => {
     if (currentQuestion.order >= session.total_questions) {
-      // Last question completed -> finish session
       onFinish(session.id);
       return;
     }

@@ -172,7 +172,6 @@ export const QuestionBankView: React.FC = () => {
     }
   };
 
-  // Perform delete after confirmation modal
   const confirmDeleteQuestionSet = async () => {
     if (!setToDelete) return;
     try {
@@ -296,7 +295,6 @@ export const QuestionBankView: React.FC = () => {
     }
   };
 
-  // Run AI Solver on current question set
   const handleSolveSetWithAI = async () => {
     if (!selectedSet) return;
     try {

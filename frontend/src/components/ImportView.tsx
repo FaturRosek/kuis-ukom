@@ -226,7 +226,6 @@ export const ImportView: React.FC<ImportViewProps> = ({ onSuccess }) => {
     }
   };
 
-  // Bulk Apply Answer Keys (e.g. "1.C 2.B 3.C..." or "C B C B...")
   const handleApplyBulkKeys = () => {
     if (!parsedData || !bulkKeysText.trim()) return;
 
@@ -286,7 +285,6 @@ export const ImportView: React.FC<ImportViewProps> = ({ onSuccess }) => {
     alert(`Berhasil menetapkan ${appliedCount} kunci jawaban secara otomatis!`);
   };
 
-  // Set Default Temporary Key (e.g. Option A) for tryout without keys
   const handleSetDefaultKey = (label: string = 'A') => {
     if (!parsedData) return;
     if (
@@ -332,7 +330,6 @@ export const ImportView: React.FC<ImportViewProps> = ({ onSuccess }) => {
     try {
       let targetSetId = selectedSetId;
 
-      // Create new set if selected
       if (selectedSetId === 'new') {
         if (!newSetTitle.trim()) {
           throw new Error('Judul paket soal baru wajib diisi.');

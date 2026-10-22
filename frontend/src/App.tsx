@@ -42,7 +42,6 @@ export const App: React.FC = () => {
     }
   };
 
-  // Finish solo session
   const handleFinishSoloSession = async (sessionId: string) => {
     try {
       const summary = await api.finishSoloSession(sessionId, currentPlayerName);
