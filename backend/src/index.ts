@@ -1,3 +1,4 @@
+import dns from 'node:dns';
 import express, { Request, Response, NextFunction } from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
@@ -5,6 +6,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder('ipv4first');
+}
 
 import categoryRoutes from './routes/categoryRoutes.js';
 import questionSetRoutes from './routes/questionSetRoutes.js';
