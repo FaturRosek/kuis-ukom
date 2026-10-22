@@ -92,7 +92,7 @@ export const SoloSetupView: React.FC<SoloSetupViewProps> = ({
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <div className="category-scroll-container">
           <button
             className={`btn btn-sm ${selectedCategory === 'all' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setSelectedCategory('all')}
@@ -136,15 +136,7 @@ export const SoloSetupView: React.FC<SoloSetupViewProps> = ({
         </div>
       )}
 
-      {/* Question Set Grid */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '1.5rem',
-          alignItems: 'stretch',
-        }}
-      >
+      <div className="question-sets-grid">
         {filteredSets.map((set) => {
           const hasQuestions = (set.question_count || 0) > 0;
           return (
@@ -268,7 +260,6 @@ export const SoloSetupView: React.FC<SoloSetupViewProps> = ({
         })}
       </div>
 
-      {/* Launch Configuration Modal */}
       {activeSet && (
         <div
           style={{
@@ -282,7 +273,7 @@ export const SoloSetupView: React.FC<SoloSetupViewProps> = ({
             padding: '1rem',
           }}
         >
-          <div className="card" style={{ maxWidth: '480px', width: '100%', padding: '2rem' }}>
+          <div className="card modal-card" style={{ maxWidth: '480px', width: '100%', maxHeight: '90vh', overflowY: 'auto' }}>
             <h3 style={{ fontSize: '1.35rem', marginBottom: '0.5rem' }}>Konfigurasi Latihan</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
               {activeSet.title} ({activeSet.question_count} Soal)

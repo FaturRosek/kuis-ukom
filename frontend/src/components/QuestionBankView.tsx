@@ -79,6 +79,7 @@ export const QuestionBankView: React.FC = () => {
   const [isAiSolving, setIsAiSolving] = useState<boolean>(false);
   const [aiApiKey, setAiApiKey] = useState<string>(() => localStorage.getItem('gemini_api_key') || '');
   const [aiSuccessMsg, setAiSuccessMsg] = useState<string | null>(null);
+  const [mobileTab, setMobileTab] = useState<'sets' | 'questions'>('sets');
 
   useEffect(() => {
     loadSetsAndCategories();
@@ -108,6 +109,7 @@ export const QuestionBankView: React.FC = () => {
 
   const selectQuestionSet = async (set: QuestionSet) => {
     setSelectedSet(set);
+    setMobileTab('questions');
     try {
       const qList = await api.getQuestions({ questionSetId: set.id });
       setQuestions(qList);
@@ -358,9 +360,25 @@ export const QuestionBankView: React.FC = () => {
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '1.5rem', alignItems: 'start' }}>
-        {/* Left Column: Question Sets list */}
-        <div className="card" style={{ padding: '1.25rem' }}>
+      <div className="bank-mobile-switcher">
+        <button
+          type="button"
+          className={`bank-mobile-switch-btn ${mobileTab === 'sets' ? 'active' : ''}`}
+          onClick={() => setMobileTab('sets')}
+        >
+          Daftar Paket ({questionSets.length})
+        </button>
+        <button
+          type="button"
+          className={`bank-mobile-switch-btn ${mobileTab === 'questions' ? 'active' : ''}`}
+          onClick={() => setMobileTab('questions')}
+        >
+          Butir Soal ({questions.length})
+        </button>
+      </div>
+
+      <div className="bank-grid-container">
+        <div className={`card bank-sidebar-card ${mobileTab === 'questions' ? 'mobile-hidden' : ''}`} style={{ padding: '1.25rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
             <h4 style={{ fontSize: '1rem', color: 'var(--text-secondary)' }}>
               Daftar Paket Soal ({questionSets.length})
@@ -489,10 +507,20 @@ export const QuestionBankView: React.FC = () => {
           )}
         </div>
 
-        {/* Right Column: Questions in selected set */}
-        <div>
+        <div className={`bank-questions-column ${mobileTab === 'sets' ? 'mobile-hidden' : ''}`}>
           {selectedSet ? (
             <div>
+              <div className="mobile-back-to-sets" style={{ marginBottom: '0.75rem' }}>
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  onClick={() => setMobileTab('sets')}
+                  style={{ width: '100%', justifyContent: 'center' }}
+                >
+                  &larr; Ganti Paket Soal
+                </button>
+              </div>
+
               <div
                 className="card"
                 style={{
@@ -530,7 +558,7 @@ export const QuestionBankView: React.FC = () => {
                   </p>
                 </div>
 
-                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.6rem' }}>
+                <div className="bank-set-actions">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)' }}>
                       {questions.length} Butir Soal
@@ -539,7 +567,6 @@ export const QuestionBankView: React.FC = () => {
                   </div>
 
                   <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                    {/* Edit Question Set Button */}
                     <button
                       type="button"
                       className="btn btn-secondary btn-sm"
@@ -551,7 +578,6 @@ export const QuestionBankView: React.FC = () => {
                       Edit Judul Paket
                     </button>
 
-                    {/* AI Solver Trigger */}
                     <button
                       className="btn btn-secondary btn-sm"
                       onClick={() => setIsAiModalOpen(true)}
@@ -567,7 +593,6 @@ export const QuestionBankView: React.FC = () => {
                       Bantu Kunci dengan AI
                     </button>
 
-                    {/* Delete Question Set Button */}
                     <button
                       className="btn btn-secondary btn-sm"
                       onClick={() => setSetToDelete(selectedSet)}
@@ -586,7 +611,6 @@ export const QuestionBankView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Questions list */}
               {questions.length === 0 ? (
                 <div className="card" style={{ textAlign: 'center', padding: '3rem' }}>
                   <Database size={36} style={{ color: 'var(--text-muted)', marginBottom: '0.75rem' }} />
@@ -686,7 +710,6 @@ export const QuestionBankView: React.FC = () => {
         </div>
       </div>
 
-      {/* Confirmation Modal: Delete Question Set */}
       {setToDelete && (
         <div
           style={{
@@ -700,7 +723,7 @@ export const QuestionBankView: React.FC = () => {
             padding: '1rem',
           }}
         >
-          <div className="card" style={{ maxWidth: '480px', width: '100%', padding: '2rem' }}>
+          <div className="card modal-card" style={{ maxWidth: '480px', width: '100%', padding: '2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div
                 style={{
@@ -759,7 +782,6 @@ export const QuestionBankView: React.FC = () => {
         </div>
       )}
 
-      {/* Confirmation Modal: Delete Question */}
       {questionToDelete && (
         <div
           style={{
@@ -773,7 +795,7 @@ export const QuestionBankView: React.FC = () => {
             padding: '1rem',
           }}
         >
-          <div className="card" style={{ maxWidth: '460px', width: '100%', padding: '1.75rem' }}>
+          <div className="card modal-card" style={{ maxWidth: '460px', width: '100%', padding: '1.75rem' }}>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '0.75rem' }}>Hapus Butir Soal?</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
               Yakin ingin menghapus butir soal ini? Tindakan ini akan menghapus opsi dan kunci jawaban yang terkait.
@@ -801,7 +823,6 @@ export const QuestionBankView: React.FC = () => {
         </div>
       )}
 
-      {/* Modal: AI Solver for Current Set */}
       {isAiModalOpen && selectedSet && (
         <div
           style={{
@@ -815,7 +836,7 @@ export const QuestionBankView: React.FC = () => {
             padding: '1rem',
           }}
         >
-          <div className="card" style={{ maxWidth: '560px', width: '100%', padding: '2rem' }}>
+          <div className="card modal-card" style={{ maxWidth: '560px', width: '100%', padding: '2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div
                 style={{
@@ -896,10 +917,9 @@ export const QuestionBankView: React.FC = () => {
         </div>
       )}
 
-      {/* Modal: Tambah Paket Soal Baru */}
       {isNewSetModalOpen && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '1rem' }}>
-          <form className="card" style={{ maxWidth: '500px', width: '100%', padding: '2rem' }} onSubmit={handleCreateSet}>
+          <form className="card modal-card" style={{ maxWidth: '500px', width: '100%', padding: '2rem' }} onSubmit={handleCreateSet}>
             <h3 style={{ marginBottom: '1rem' }}>Buat Paket Soal Baru</h3>
             <div className="form-group">
               <label className="form-label">Kategori</label>
@@ -946,7 +966,6 @@ export const QuestionBankView: React.FC = () => {
         </div>
       )}
 
-      {/* Modal: Edit Informasi / Judul Paket Soal */}
       {isEditSetModalOpen && editSetData && (
         <div
           style={{
@@ -961,7 +980,7 @@ export const QuestionBankView: React.FC = () => {
           }}
         >
           <form
-            className="card"
+            className="card modal-card"
             style={{ maxWidth: '520px', width: '100%', padding: '2rem' }}
             onSubmit={handleSaveEditSet}
           >
@@ -1048,10 +1067,9 @@ export const QuestionBankView: React.FC = () => {
         </div>
       )}
 
-      {/* Modal: Tambah Soal Manual */}
       {isNewQuestionModalOpen && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(15,23,42,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '1rem', overflowY: 'auto' }}>
-          <form className="card" style={{ maxWidth: '640px', width: '100%', padding: '2rem', maxHeight: '90vh', overflowY: 'auto' }} onSubmit={handleCreateQuestion}>
+          <form className="card modal-card" style={{ maxWidth: '640px', width: '100%', padding: '2rem' }} onSubmit={handleCreateQuestion}>
             <h3 style={{ marginBottom: '0.5rem' }}>Tambah Soal Pilihan Ganda</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.25rem' }}>
               Paket: <strong>{selectedSet?.title}</strong>
@@ -1128,7 +1146,6 @@ export const QuestionBankView: React.FC = () => {
         </div>
       )}
 
-      {/* Modal: Edit Butir Soal */}
       {editingQuestion && editQuestionData && (
         <div
           style={{
@@ -1144,8 +1161,8 @@ export const QuestionBankView: React.FC = () => {
           }}
         >
           <form
-            className="card"
-            style={{ maxWidth: '680px', width: '100%', padding: '2rem', maxHeight: '90vh', overflowY: 'auto' }}
+            className="card modal-card"
+            style={{ maxWidth: '680px', width: '100%', padding: '2rem' }}
             onSubmit={handleSaveEditQuestion}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
