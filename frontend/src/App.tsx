@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { SoloSetupView } from './components/SoloSetupView';
 import { SoloGameView } from './components/SoloGameView';
@@ -14,12 +14,15 @@ import { SoloSession, SoloQuestionClientView, SessionResultSummary } from './typ
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<string>('home');
 
-  
   const [activeSoloSession, setActiveSoloSession] = useState<SoloSession | null>(null);
   const [firstQuestion, setFirstQuestion] = useState<SoloQuestionClientView | null>(null);
   const [currentPlayerName, setCurrentPlayerName] = useState<string>('Peserta');
   const [sessionSummary, setSessionSummary] = useState<SessionResultSummary | null>(null);
   const [reviewSessionId, setReviewSessionId] = useState<string | null>(null);
+
+  useEffect(() => {
+    api.checkHealth();
+  }, []);
 
   
   const handleStartSoloSession = async (

@@ -399,7 +399,10 @@ export const QuestionBankView: React.FC = () => {
           </div>
 
           {loading ? (
-            <p style={{ color: 'var(--text-muted)' }}>Memuat...</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-secondary)', padding: '1.25rem 0' }}>
+              <Loader2 size={18} className="spin-animation" style={{ color: 'var(--primary)' }} />
+              <span style={{ fontSize: '0.9rem' }}>Memuat paket soal...</span>
+            </div>
           ) : questionSets.length === 0 ? (
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', textAlign: 'center', padding: '1rem' }}>
               Belum ada paket soal. Buat baru atau impor dari dokumen.

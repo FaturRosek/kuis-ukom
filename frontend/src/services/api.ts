@@ -34,6 +34,15 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
 }
 
 export const api = {
+  async checkHealth(): Promise<any> {
+    try {
+      const res = await fetch(`${API_BASE}/health`);
+      return await res.json();
+    } catch {
+      return null;
+    }
+  },
+
   async getCategories(): Promise<Category[]> {
     return request<Category[]>('/categories');
   },

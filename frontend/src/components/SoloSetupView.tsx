@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../services/api';
 import { Category, QuestionSet } from '../types';
-import { BookOpen, Sparkles, Layers, Play, Settings2 } from 'lucide-react';
+import { BookOpen, Sparkles, Layers, Play, Settings2, Loader2, RefreshCw } from 'lucide-react';
 
 interface SoloSetupViewProps {
   onStartSession: (questionSetId: string, durationSeconds: number, playerName: string) => void;
@@ -16,9 +16,9 @@ export const SoloSetupView: React.FC<SoloSetupViewProps> = ({
   const [questionSets, setQuestionSets] = useState<QuestionSet[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [loading, setLoading] = useState<boolean>(true);
+  const [slowWakeup, setSlowWakeup] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  
   const [activeSet, setActiveSet] = useState<QuestionSet | null>(null);
   const [duration, setDuration] = useState<number>(30);
   const [playerName, setPlayerName] = useState<string>('Peserta UKOM');
@@ -28,8 +28,15 @@ export const SoloSetupView: React.FC<SoloSetupViewProps> = ({
   }, []);
 
   const loadData = async () => {
+    let timer: any = null;
     try {
       setLoading(true);
+      setError(null);
+      setSlowWakeup(false);
+      timer = setTimeout(() => {
+        setSlowWakeup(true);
+      }, 3500);
+
       const [catList, setList] = await Promise.all([
         api.getCategories(),
         api.getQuestionSets(undefined, 'published'),
@@ -39,6 +46,7 @@ export const SoloSetupView: React.FC<SoloSetupViewProps> = ({
     } catch (err: any) {
       setError(err.message || 'Gagal memuat data paket soal.');
     } finally {
+      if (timer) clearTimeout(timer);
       setLoading(false);
     }
   };
@@ -115,14 +123,31 @@ export const SoloSetupView: React.FC<SoloSetupViewProps> = ({
       </div>
 
       {loading && (
-        <div className="card" style={{ textAlign: 'center', padding: '3rem' }}>
-          <p style={{ color: 'var(--text-secondary)' }}>Memuat bank soal...</p>
+        <div className="card" style={{ textAlign: 'center', padding: '3.5rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+          <div className="spin-animation" style={{ color: 'var(--primary)', display: 'inline-flex' }}>
+            <Loader2 size={38} />
+          </div>
+          <div style={{ maxWidth: '540px', margin: '0 auto' }}>
+            <h4 style={{ fontSize: '1.15rem', marginBottom: '0.4rem' }}>
+              {slowWakeup ? 'Menghubungkan ke Server Cloud...' : 'Memuat Bank Soal UKOM...'}
+            </h4>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.6 }}>
+              {slowWakeup
+                ? 'Server gratis (Render) sedang bangun dari mode standby (cold start). Ini memerlukan waktu sekitar 30–50 detik saat pertama kali diakses. Mohon tunggu sebentar...'
+                : 'Mengambil daftar kategori spesialisasi dan paket soal latihan UKOM...'}
+            </p>
+          </div>
         </div>
       )}
 
       {error && (
-        <div className="card" style={{ borderColor: 'var(--danger)', background: 'var(--danger-light)', padding: '1.5rem', color: 'var(--danger-dark)' }}>
-          {error}
+        <div className="card" style={{ borderColor: 'var(--danger)', background: 'var(--danger-light)', padding: '1.75rem', textAlign: 'center' }}>
+          <p style={{ color: 'var(--danger-dark)', fontWeight: 700, marginBottom: '0.4rem' }}>Gagal memuat bank soal</p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '1.25rem' }}>{error}</p>
+          <button className="btn btn-primary btn-sm" onClick={loadData} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+            <RefreshCw size={14} />
+            Coba Muat Ulang
+          </button>
         </div>
       )}
 
