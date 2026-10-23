@@ -1719,7 +1719,7 @@ export async function seed(knex: Knex): Promise<void> {
       }
     ],"id": "a0000001-0000-0000-0000-000000000005"
   },
-  {"title": "soal UKOM sitohistoteknologi","category_slug": "sitohistoteknologi","category_name": "Sitohistoteknologi","description": "Kumpulan soal vignette kasus teknik laboratorium sitopatologi dan histopatologi.","questions": [
+  {"title": "Sitohistoteknologi","category_slug": "sitohistoteknologi","category_name": "Sitohistoteknologi","description": "Kumpulan soal vignette kasus teknik laboratorium sitopatologi dan histopatologi.","questions": [
       {"question_text": "Seorang TLM melakukan pembuatan preparat sitologi. Pada pengamatan mikroskopis, ditemukan sediaan dengan sitoplasma kecil dan inti sel tampak pucat. Diketahui pada prosesnya, sediaan tersebut dibiarkan mengering selama 5 menit terlebih dahulu sebelum difiksasi dengan alkohol 95%. Apakah penyebab dari perubahan morfologi sel tersebut?","options": [
           {"option_label": "A","option_text": "Fiksasi alkohol yang terlalu pekat","is_correct": false
           },
@@ -1830,7 +1830,7 @@ export async function seed(knex: Knex): Promise<void> {
           }
         ],"explanation": "Kerusakan berupa robekan atau kerutan pada sediaan histopatologi terutama diakibatkan oleh pisau mikrotom yang tumpul/rusak, sudut kemiringan pisau (clearance angle) yang salah, atau kecepatan memotong yang tidak stabil.","difficulty": "medium"
       }
-    ],"id": "a0000001-0000-0000-0000-000000000006"
+    ],"id": "5f221a8b-1168-43d1-8b55-280e372fdd9c"
   },
   {"id": "a0000001-0000-0000-0000-000000000007","title": "Soal_UKOM_D3_TLM_Mikologi","category_slug": "mikologi-klinik","category_name": "Mikologi Klinik","description": "30 Soal Kasus Uji Kompetensi D3 TLM Mikologi Klinik: Prinsip Pemeriksaan & Media, Mikologi Superfisial & Kutan, Mikologi Sistemik & Oportunistik, Mikromorfologi Spora & Identifikasi Kultur.","questions": [
       {"question_text": "Kerokan kulit dari lesi tinea korporis diperiksa secara langsung. ATLM meneteskan KOH 10-20% pada sediaan, menutupnya dengan kaca penutup, dan mendiamkannya 15-20 menit sebelum dibaca. Fungsi utama KOH pada pemeriksaan ini adalah ...","difficulty": "medium","explanation": "Pembahasan KOH bersifat keratolitik: melarutkan keratin, sel epitel, dan debris sehingga sediaan menjadi jernih, sedangkan dinding sel jamur (kitin dan glukan) tahan terhadap KOH sehingga hifa dan spora tampak jelas. KOH tidak mewarnai; warna biru diperoleh bila ditambahkan tinta Parker biru atau pada sediaan LPCB.","options": [
@@ -2247,6 +2247,15 @@ export async function seed(knex: Knex): Promise<void> {
         .returning('*');
       setRecord = inserted;
     }
+
+    if (setData.id === '5f221a8b-1168-43d1-8b55-280e372fdd9c') {
+      await knex('question_sets').where('id', 'a0000001-0000-0000-0000-000000000006').del();
+    }
+
+    await knex('questions')
+      .where('question_set_id', setRecord.id)
+      .andWhere('question_text', 'like', '-%')
+      .del();
 
     for (const q of setData.questions) {
       let existingQ = await knex('questions')
